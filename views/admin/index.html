@@ -1,0 +1,11 @@
+<!--layout.html 是一个模板，这里继承这个模板-->
+{% extends 'layout.html' %}
+
+<!--覆写main这个block区块-->
+{% block main%}
+<div class="jumbotron">
+    <h1>hello,{{userInfo.userName}}</h1>
+    <p>欢迎来到我的博客</p>
+</div>
+{% endblock%}
+

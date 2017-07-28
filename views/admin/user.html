@@ -1,0 +1,33 @@
+<!--layout.html 是一个模板，这里继承这个模板-->
+{% extends 'layout.html' %}
+
+<!--覆写main这个block区块-->
+{% block main%}
+<ol class="breadcrumb">
+    <li><a href="/admin">管理首页</a></li>
+    <li><span>用户列表</span></li>
+</ol>
+<h3>用户列表</h3>
+<table class="table table-hover table-striped text-center">
+    <tr>
+        <th class="text-center">ID</th>
+        <th class="text-center">USER_ID</th>
+        <th class="text-center">用户名</th>
+        <th class="text-center">密码</th>
+        <th class="text-center">token</th>
+    </tr>
+    {% for user in users %}
+    <tr>
+        <td>{{loop.index}}</td>
+        <td>{{user.user_id}}</td>
+        <td>{{user.userName}}</td>
+        <td>{{user.password}}</td>
+        <td>{{user.token}}</td>
+    </tr>
+    {% endfor%}
+</table>
+
+{% include "page.html" %}
+
+{% endblock%}
+

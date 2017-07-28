@@ -1,0 +1,14 @@
+html,body, dl, dd, h1, h2, h3, h4, h5, h6, p, form,ol,li,ul,input, textarea,header {margin:0;padding:0;}
+a, a:link, a:visited, a:hover, a:active {
+    outline: 0;
+    text-decoration: none;
+}
+img{display: block;border:none;}
+.clear {
+    clear: both;
+}
+ol, ul {
+    list-style: none
+}
+.left{float: left;}
+.riught{float: right;}

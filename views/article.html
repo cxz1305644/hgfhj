@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <meta name="renderer" content="webkit">
+    <title>陈星州个人博客 - 分享IT技术的个人博客</title>
+    <meta name="description" content="陈星州个人博客，是一个记录自己互联网技术的博客（chen.Com）。"/>
+    <meta name="keywords" content="陈星州,会飞的Tiger,liunx,java,web前端,网站,互联网,个人博客,node,mysql"/>
+    <meta name="author" content="陈星州,会飞的Tiger">
+    <meta name="generator" content="node,java"/>
+    <link rel="stylesheet" rev="stylesheet" href="public/css/style.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="public/css/font-awesome.min.css" media="screen" type="text/css"/>
+    <script src="public/js/common.js" type="text/javascript"></script>
+    <script src="public/js/c_html_js_add.js" type="text/javascript"></script>
+    <script type="text/javascript" src="public/js/jquery.lazyload.js"></script>
+    <script src="public/js/swiper.min.js"></script>
+    <!--[if lte IE 7]>
+    <link rel="stylesheet" href="public/css/font-awesome-ie7.min.css"><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="public/js/html5.js"></script>
+    <script src="public/js/ie9.js"></script><![endif]-->
+</head>
+<body class="home blog custom-background">
+<header class="header">
+    <section class="header-content wrapper">
+        <div class="header-roup">
+            <h1 class="left"><a href="http://www.talklee.com/" class="logo" title="陈星州个人博客"><img
+                    src="public/picture/logo_example.png" alt="陈星州个人博客"></a></h1>
+            <span class="blog-title left">分享IT技术的个人博客网站</span>
+        </div>
+        <form class="search-form right" name="search" method="post"
+              action="http://www.talklee.com/zb_system/cmd.php?act=search">
+            <input class="search-input left" name="q" placeholder="请输入搜索内容..." type="text">
+            <span class="search-submit right">
+				<button id="btnPost" type="submit"></button>
+			</span>
+        </form>
+    </section>
+    <div class="clearfix"></div>
+    <nav class="header-nav" data-type="index" data-infoid="index">
+        <div class="nav-sjlogo"><i class="fa fa-navicon"></i><a href="http://www.talklee.com/"><img
+                src="public/picture/logo_example.png" alt="陈星州个人博客"></a></div>
+        <div class="nav-sousuo"><!-- Search begin -->
+            <div class="mini_search">
+                <form name="search" class="searchform" method="post"
+                      action="http://www.talklee.com/zb_system/cmd.php?act=search">
+                    <input class="searchInput" type="text" name="q" size="11" placeholder="请输入搜索内容..." id="ls"/>
+                    <button type="submit" class="btn-search dtb2" value=""><i class="fa fa-search"></i></button>
+                </form>
+            </div>
+            <a id="mo-so" href="javascript:void(0);"><i class="fa fa-search icon-search"></i></a>
+        </div>
+        <aside class="mobile_aside mobile_nav">
+            <div class="header-menu mobile-menu">
+                <ul class="menu">
+                    <li id="nvabar-item-index"><a href="/">首页</a></li>
+                    <li id="navbar-category-2"><a href="/qianduan?id=2">web前端</a></li>
+                    <li id="navbar-category-3"><a href="/database?id=3">数据库</a></li>
+                    <li id="navbar-category-4"><a href="/java?id=4">java</a></li>
+                    <li id="navbar-category-5"><a href="linux?id=5">linux</a></li>
+                    <li id="navbar-category-6"><a href="/essay?id=6">随笔</a></li>
+                    <li id="navbar-page-2"><a href="/liuyan?id=10000">留言本</a></li>
+                    <!--<li id="navbar-page-2" class="menu-item-has-children "><a href="/liuyan">留言本</a>-->
+                    <!--<ul class="dropdown-menu sub-menu">-->
+                    <!--<li id="navbar-page-24"><a href="http://www.talklee.com/tougao/">本站投稿</a></li>-->
+                    <!--<li class="menu-item menu-item-type-taxonomy menu-item-object-category "><a href="/ads/">广告投放</a>-->
+                    <!--</li>-->
+                    <!--<li id="navbar-page-53" class="menu-item menu-item-type-post_type menu-item-object-page"><a-->
+                    <!--href="/zanzhu/" class="current-on">赞助我们</a></li>-->
+                    <!--</ul>-->
+                    <!--</li>-->
+                </ul>
+            </div>
+        </aside>
+    </nav>
+    <div class="top-bar">
+        <div class="gonggao">
+            <nav id="callboard" class="top-nav left">
+                <ul class="menu">
+                    <li><i class="fa fa-bullhorn"></i>您好，欢迎到访陈星州个人博客!
+                        <a target="_blank" href="//shang.qq.com/wpa/qunwpa?idkey=c30722f3c9cba68d73b80ad8635ba992a9f29a0eeb127c3b789f5d4e668a6552"></a>
+                    </li>
+
+                </ul>
+            </nav>
+            <div class="user-front top-menu right">
+                <div class="login-reg left">
+                    <ul>
+                        <li>
+                            <a href="/admin">后台管理</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</header>
+
+
+<div class="wrapper">
+    <div class="container">
+        <div class="content-wrap left">
+
+
+            {% block main%}{%endblock%}
+
+            <div class="ad">
+                <a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img
+                        src="picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a></div>
+            <div class="content stylelist">
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/255.html" title="快速搭建MIP，体验友好的移动页面">
+                            <img src="picture/201707111499738179568189_1.png" alt="快速搭建MIP，体验友好的移动页面"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/255.html"
+                               title="快速搭建MIP，体验友好的移动页面">快速搭建MIP，体验友好的移动页面</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        在读这篇文章之前，请确定你已经了解MIP定义及加速原理。如果不确定的话，可以到MIP官网了解。文章内容来自MIP博客。改造前期准备和注意事项:你可以选择直接将原先的移动站点直接改成MIP站，也可以单独再做一套MIP站点与移动站并存。复杂的页面暂不建议MIP改造，目前对资讯、图文类支持已较好，若功能较...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-07-11</span>
+                        <span class="view"><i class="fa fa-eye"></i>232</span>
+                        <span class="comment"><i class="fa fa-comment"></i>0</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/255.html"
+                           title="详细阅读 快速搭建MIP，体验友好的移动页面">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/251.html" title="血淋淋的教训导致首家共享单车倒闭">
+                            <img src="picture/201706191497831230790463_1.jpg" alt="血淋淋的教训导致首家共享单车倒闭"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/251.html" title="血淋淋的教训导致首家共享单车倒闭">血淋淋的教训导致首家共享单车倒闭</a>
+                        </h2>
+                    </header>
+                    <div class="excerpt">
+                        6月16日，摩拜宣布又获得超6亿美元融资。与此同时，重庆一家名为“悟空单车”的共享单车却撑不下去了。就在摩拜宣布巨额融资的三天前，悟空单车宣布停止运营。这让悟空单车成为行业首家彻底退出的企业。为了这个风口，悟空单车创始人雷厚义搭进去了300多万元，一千多辆单车也不见了踪影。当然，他也不打算找回来，“...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-06-19</span>
+                        <span class="view"><i class="fa fa-eye"></i>977</span>
+                        <span class="comment"><i class="fa fa-comment"></i>4</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/251.html"
+                           title="详细阅读 血淋淋的教训导致首家共享单车倒闭">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/248.html" title="别让近视毁了你的孩子">
+                            <img src="picture/201707111499741911469664.jpg" alt="别让近视毁了你的孩子" style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/248.html" title="别让近视毁了你的孩子">别让近视毁了你的孩子</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        据市场调查小学生近视率25%，初中生近视率75%，高中生更是高达85%，而且每年以8%的速度增长！你家的孩子或者身边的孩子会趴在桌子上写字或者歪着头或离作业本很近吗？这样的后果就是近视，驼背，严重的会对脊柱也有影响的，所以家长也比较着急，会不停的提醒孩子坐直坐正！可是家长不能时时刻刻的提醒，我家的孩...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-06-05</span>
+                        <span class="view"><i class="fa fa-eye"></i>1200</span>
+                        <span class="comment"><i class="fa fa-comment"></i>3</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/248.html" title="详细阅读 别让近视毁了你的孩子">阅读更多</a>
+                    </div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/247.html" title="手动关闭445端口操作教程">
+                            <img src="picture/201705151494808889240139_1.jpg" alt="手动关闭445端口操作教程"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/247.html" title="手动关闭445端口操作教程">手动关闭445端口操作教程</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        建议先断网，再关闭端口，关闭端口后可以联网下载补丁或修复工具第一步：开始菜单-打开控制面板中的Windows防火墙，并保证防火墙处于启用状态Windows系统补丁下载地址WindowsXP，WindowsServer2003，Windows8等系统请访问：此处Windows7，Windows8...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-05-15</span>
+                        <span class="view"><i class="fa fa-eye"></i>2020</span>
+                        <span class="comment"><i class="fa fa-comment"></i>2</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/247.html"
+                           title="详细阅读 手动关闭445端口操作教程">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/246.html" title="全球爆发的WannaCry病毒到底有多可怕？">
+                            <img src="picture/201705151494807892505906_1.jpg" alt="全球爆发的WannaCry病毒到底有多可怕？"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/246.html"
+                               title="全球爆发的WannaCry病毒到底有多可怕？">全球爆发的WannaCry病毒到底有多可怕？</a>
+                        </h2>
+                    </header>
+                    <div class="excerpt">
+                        或许有一天，速度与激情8里自动驾驶车辆被集中攻击的场景，也会成为现实。勒索病毒依旧可防范，但它在全球的爆发也说明，世上没有绝对的安全系统。5月12日晚间，全球近100个国家的微软系统计算机同时遭到名为WannaCry（想哭吗）或WannaDecryptor（想解锁吗）的电脑病毒袭击。想要被感染病毒...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-05-15</span>
+                        <span class="view"><i class="fa fa-eye"></i>1771</span>
+                        <span class="comment"><i class="fa fa-comment"></i>4</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/246.html"
+                           title="详细阅读 全球爆发的WannaCry病毒到底有多可怕？">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/245.html"
+                           title="PHP错误WARNING: SESSION_START() [FUNCTION.SESSION-START]解决方法">
+                            <img src="picture/201705111494466401438061.jpg"
+                                 alt="PHP错误WARNING: SESSION_START() [FUNCTION.SESSION-START]解决方法"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/245.html"
+                               title="PHP错误WARNING: SESSION_START() [FUNCTION.SESSION-START]解决方法">PHP错误WARNING:
+                            SESSION_START() [FUNCTION.SESSION-START]解决方法</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        文章主要介绍了PHP错误WARNING:SESSION_START()[FUNCTION.SESSION-START]解决方法,需要的朋友可以参考下，操作session有时候会遇到这个问题：Warning:session_start()[function.session-start]……系统...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-05-11</span>
+                        <span class="view"><i class="fa fa-eye"></i>2232</span>
+                        <span class="comment"><i class="fa fa-comment"></i>3</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/245.html"
+                           title="详细阅读 PHP错误WARNING: SESSION_START() [FUNCTION.SESSION-START]解决方法">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/239.html" title="【投稿】自由撰稿人如何通过博客等自媒体赚钱？">
+                            <img src="picture/201704191492568878207899.jpg" alt="【投稿】自由撰稿人如何通过博客等自媒体赚钱？"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/239.html"
+                               title="【投稿】自由撰稿人如何通过博客等自媒体赚钱？">【投稿】自由撰稿人如何通过博客等自媒体赚钱？</a>
+                        </h2>
+                    </header>
+                    <div class="excerpt">
+                        前言：首先介绍下什么是自由撰稿人：自由撰稿人是一种新兴的职业形式。是以自由撰稿为主要工作、且主要收入依靠本职业。自由撰稿人和任何一种职业都是一样，不是每个人都能从事这项职业，也并非只有少数的文字功底深厚的人才能做好。应该知道靠写博客是无法一夜暴富的，需要消耗时间持续地发布高质量文章，并提供有价值的创...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-04-19</span>
+                        <span class="view"><i class="fa fa-eye"></i>2144</span>
+                        <span class="comment"><i class="fa fa-comment"></i>0</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/239.html"
+                           title="详细阅读 【投稿】自由撰稿人如何通过博客等自媒体赚钱？">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/236.html" title="SEO搜索引擎优化的工作原理介绍">
+                            <img src="picture/201704121491964228154147.jpg" alt="SEO搜索引擎优化的工作原理介绍"
+                                 style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/236.html" title="SEO搜索引擎优化的工作原理介绍">SEO搜索引擎优化的工作原理介绍</a>
+                        </h2>
+                    </header>
+                    <div class="excerpt">
+                        搜索引擎工作原理一个SEO从业者应该了解的基础课程，但是有人却说搜索引擎工作原理对于新手来说是不容易理解的，因为工作原理太抽象，而且搜索引擎的变化无常，无论谁都不能真正认识搜索工作原理。我想说的是无论搜索引擎怎样变化，大概的收录原理是不会变的：1、找到网站的URL并下载页面。2、判断页面质量是否达到...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-04-12</span>
+                        <span class="view"><i class="fa fa-eye"></i>1551</span>
+                        <span class="comment"><i class="fa fa-comment"></i>0</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/236.html"
+                           title="详细阅读 SEO搜索引擎优化的工作原理介绍">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/228.html" title="重要通知:多说即将下线！">
+                            <img src="picture/201703221490165078214302.png" alt="重要通知:多说即将下线！" style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/228.html" title="重要通知:多说即将下线！">重要通知:多说即将下线！</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        今天上班收到多说官方的邮件，很遗憾的通知大家，多说即将关闭，又一个社会化评论网站倒下了。。。你好！因公司业务调整，非常遗憾的向大家宣布多说项目即将关闭。我们将于2017年6月1日正式关停服务，在此之前您可以通过后台的数据导出功能导出自己站点的评论数据。对此给您造成的不便，我们深表歉意，感谢您的一路相...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-03-22</span>
+                        <span class="view"><i class="fa fa-eye"></i>1193</span>
+                        <span class="comment"><i class="fa fa-comment"></i>0</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/228.html"
+                           title="详细阅读 重要通知:多说即将下线！">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/227.html" title="如何成功创建百度百科">
+                            <img src="picture/201703201489998858291635.jpg" alt="如何成功创建百度百科" style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/227.html" title="如何成功创建百度百科">如何成功创建百度百科</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        百科营销是一种建立企业品牌和知名度的网络营销方法，对于网络营销来说，百科营销还是比较新的一块，很多从事网络营销的人和企业，并没有真正把百科当作一回事。其实用好百科，可以让网络营销更高效，其最显著的特征就是用最简单且几乎没有任何技术含量的方式，实现搜索引擎的高度优化。以百度为例，其旗下产品百度知道、百...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-03-20</span>
+                        <span class="view"><i class="fa fa-eye"></i>1929</span>
+                        <span class="comment"><i class="fa fa-comment"></i>3</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/227.html" title="详细阅读 如何成功创建百度百科">阅读更多</a>
+                    </div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/222.html" title="做好SEO优化你要知道的四点常识">
+                            <img src="picture/201703066682_6155.jpg" alt="做好SEO优化你要知道的四点常识" style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/222.html" title="做好SEO优化你要知道的四点常识">做好SEO优化你要知道的四点常识</a>
+                        </h2>
+                    </header>
+                    <div class="excerpt">
+                        SEO优化这份工作说起来简单做起来难，很多新人在工作初期常常脑袋是懵的，另外网站优化的开始那一阵是最难的，常常有新人问为什么我做了那么多优化，而网站排名没有上升?效果为什么不如心中设想?SEO优化说简单点就是原创内容和外部链接，看起来简单，做起来真是一把心酸泪...今天小编就seoer新人常会遇到的...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-03-06</span>
+                        <span class="view"><i class="fa fa-eye"></i>2107</span>
+                        <span class="comment"><i class="fa fa-comment"></i>2</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/222.html"
+                           title="详细阅读 做好SEO优化你要知道的四点常识">阅读更多</a></div>
+                </article>
+                <article class="post">
+                    <div class="post-thumb left">
+                        <a href="http://www.talklee.com/blog/220.html" title="百度关键词优化的算法和规则">
+                            <img src="picture/201703014130_2466.png" alt="百度关键词优化的算法和规则" style="display: inline;">
+                        </a>
+                    </div>
+                    <header class="post-head">
+                        <h2><a href="http://www.talklee.com/blog/220.html" title="百度关键词优化的算法和规则">百度关键词优化的算法和规则</a></h2>
+                    </header>
+                    <div class="excerpt">
+                        做全网营销其中的工作之重就是做好企业关键词的优化，包括企业信息的推广，其实组成SEO优化排名的规则并没有想象中那么复杂，其实无非就几个方面解决百度排名问题，这里简单把百度搜索引擎优化的规划和算法统计好，以备自用；1、百度绿萝算法百度绿萝算法是百度于2013年2月19日上线的一种搜索引擎反作弊的算法。...
+                    </div>
+                    <div class="info">
+                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.talklee.com/info/"
+                                                                                rel="category tag">互联网</a></span>
+                        <span class="date"><i class="fa fa-clock-o"></i>2017-03-01</span>
+                        <span class="view"><i class="fa fa-eye"></i>1599</span>
+                        <span class="comment"><i class="fa fa-comment"></i>0</span>
+                        <a class="read-more right" href="http://www.talklee.com/blog/220.html"
+                           title="详细阅读 百度关键词优化的算法和规则">阅读更多</a></div>
+                </article>
+            </div>
+            <div class="pagination">
+                <div class="next-page"><a href="http://www.talklee.com/info/2/"></a></div>
+            </div>
+        </div>
+
+        <aside class="sidebar right">
+            <article class="sidebar-widget" id="shangxi">
+                <h3><i class="fa fa-asterisk" aria-hidden="true"></i>赏析</h3>
+                <div class="shangxi">
+                    <b>《过零丁洋·文天祥》</b>
+                    <p>辛苦遭逢起一经，干戈寥落四周星。</p>
+                    <p>山河破碎风飘絮，身世浮沉雨打萍。</p>
+                    <p>惶恐滩头说惶恐，零丁洋里叹零丁。</p>
+                    <p>人生自古谁无死？留取丹心照汗青。</p></div>
+            </article>
+
+            <article class="sidebar-widget" id="divStatistics">
+                <span class="icon"><i class="fa fa-reorder"></i></span>
+                <h3>站点信息</h3>
+                <ul class="divStatistics">
+                    <li>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者 : 陈星州</li>
+                    <li>文章总数 : 240</li>
+                    <li>评论总数 : 758</li>
+                    <li>浏览总数 : 562712</li>
+                    <li>标签总数 : 25</li>
+                </ul>
+            </article>
+            <article class="sidebar-widget" id="newDate">
+                <span class="icon"><i class="fa fa-reorder"></i></span>
+                <h3>最新文章</h3>
+                <ul class="widget_img">
+                    <li><a href="http://www.talklee.com/blog/104.html" title="Word2010工具栏消失怎么解决(图文教程) (2)"><img
+                            src="public/picture/201601121452574882443657.jpg"
+                            alt="Word2010工具栏消失怎么解决(图文教程)"
+                            style="display: block;"><span>Word2010工具栏消失怎么解决(图文教程)</span></a>2016-01-12
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/250.html" title="网站页面滚动加载动画JS特效（二） (2)"><img
+                            src="public/picture/201706141497400651609637.jpg"
+                            alt="网站页面滚动加载动画JS特效（二）" style="display: block;"><span>网站页面滚动加载动画JS特效（二）</span></a>2017-06-14
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/221.html" title="笔记本重装Win7，进不U启的解决方法。 (2)"><img
+                            src="public/picture/201703034223_9966.png"
+                            alt="笔记本重装Win7，进不U启的解决方法。" style="display: block;"><span>笔记本重装Win7，进不U启的解决方法。</span></a>2017-03-03
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/192.html" title="博客全站启用HTTPS (11)"><img
+                            src="public/picture/201611082572_4219.jpg"
+                            alt="博客全站启用HTTPS" style="display: block;"><span>博客全站启用HTTPS</span></a>2016-11-08
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/242.html" title="做网站优化要多少钱？SEO优化怎么收费？ (1)"><img
+                            src="public/picture/201704281493344399137802.jpg"
+                            alt="做网站优化要多少钱？SEO优化怎么收费？" style="display: block;"><span>做网站优化要多少钱？SEO优化怎么收费？</span></a>2017-04-28
+                    </li>
+            </article>
+
+            <article class="sidebar-widget" id="widget_img">
+                <span class="icon"><i class="fa fa-reorder"></i></span>
+                <h3>热门文章</h3>
+                <ul class="widget_img">
+                    <li><a href="http://www.talklee.com/blog/104.html" title="Word2010工具栏消失怎么解决(图文教程) (2)"><img
+                            src="public/picture/201601121452574882443657.jpg"
+                            alt="Word2010工具栏消失怎么解决(图文教程)"
+                            style="display: block;"><span>Word2010工具栏消失怎么解决(图文教程)</span></a>2016-01-12
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/250.html" title="网站页面滚动加载动画JS特效（二） (2)"><img
+                            src="public/picture/201706141497400651609637.jpg"
+                            alt="网站页面滚动加载动画JS特效（二）" style="display: block;"><span>网站页面滚动加载动画JS特效（二）</span></a>2017-06-14
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/221.html" title="笔记本重装Win7，进不U启的解决方法。 (2)"><img
+                            src="public/picture/201703034223_9966.png"
+                            alt="笔记本重装Win7，进不U启的解决方法。" style="display: block;"><span>笔记本重装Win7，进不U启的解决方法。</span></a>2017-03-03
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/192.html" title="博客全站启用HTTPS (11)"><img
+                            src="public/picture/201611082572_4219.jpg"
+                            alt="博客全站启用HTTPS" style="display: block;"><span>博客全站启用HTTPS</span></a>2016-11-08
+                    </li>
+                    <li><a href="http://www.talklee.com/blog/242.html" title="做网站优化要多少钱？SEO优化怎么收费？ (1)"><img
+                            src="public/picture/201704281493344399137802.jpg"
+                            alt="做网站优化要多少钱？SEO优化怎么收费？" style="display: block;"><span>做网站优化要多少钱？SEO优化怎么收费？</span></a>2017-04-28
+                    </li>
+                </ul>
+            </article>
+
+
+            <article class="sidebar-widget" id="divCatalog">
+                <span class="icon"><i class="fa fa-reorder"></i></span>
+                <h3>网站分类</h3>
+                <ul class="divCatalog">
+                    <li><a href="http://www.talklee.com/info/">IT技术</a></li>
+                    <li><a href="http://www.talklee.com/tech/">互联网</a></li>
+                    <li><a href="http://www.talklee.com/talklee/">数据库</a></li>
+                    <li><a href="http://www.talklee.com/zhuti/">留言</a></li>
+                </ul>
+            </article>
+            <article class="sidebar-widget" id="divHottags">
+                <span class="icon"><i class="fa fa-reorder"></i></span>
+                <h3>热门标签</h3>
+                <ul class="divHottags">
+                    <li><a href="http://www.talklee.com/tags-5.html" title="web前端">web前端</a></li>
+                    <li><a href="http://www.talklee.com/tags-9.html" title="java">java</a></li>
+                    <li><a href="http://www.talklee.com/tags-4.html" title="linux">linux</a></li>
+                    <li><a href="http://www.talklee.com/tags-20.html" title="mysql">mysql</a></li>
+                    <li><a href="http://www.talklee.com/tags-19.html" title="node">node</a></li>
+                    <li><a href="http://www.talklee.com/tags-19.html" title="node">python</a></li>
+                    <li><a href="http://www.talklee.com/tags-19.html" title="mongodb">mongodb</a></li>
+                    <li><a href="http://www.talklee.com/tags-15.html" title="站长">javascript</a></li>
+                    <li><a href="http://www.talklee.com/tags-8.html" title="数据">数据</a></li>
+                    <li><a href="http://www.talklee.com/tags-11.html" title="IT">IT</a></li>
+                    <li><a href="http://www.talklee.com/tags-18.html" title="建站">建站</a></li>
+                    <li><a href="http://www.talklee.com/tags-27.html" title="教程">教程</a></li>
+                    <li><a href="http://www.talklee.com/tags-1.html" title="学习">学习</a></li>
+                    <li><a href="http://www.talklee.com/tags-3.html" title="交流">交流</a></li>
+                    <li><a href="http://www.talklee.com/tags-21.html" title="互联网">互联网</a></li>
+
+                </ul>
+            </article>
+
+
+
+
+
+
+            <!--广告赞助-->
+            <!--<div class="movead">-->
+            <!--<article class="sidebar-widget" id="movead">-->
+            <!--<span class="icon"><i class="fa fa-reorder"></i></span>-->
+            <!--<h3>广告赞助</h3>-->
+            <!--<ul>-->
+            <!--<li><a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img-->
+            <!--src="public/picture/201707061499321087692507.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a></li>-->
+            <!--</ul>-->
+            <!--</article>-->
+            <!--</div>-->
+
+        </aside>
+    </div>
+</div>
+
+
+<footer class="footer">
+
+    <!--友情链接-->
+    <div class="footer_link wrapper">
+        <ul>
+            <li style="margin-right: -10px;">
+                <a href="/links/" title="友情链接"><i class="fa fa-ge"></i>友情链接：</a>
+            </li>
+            <li><a href="http://www.yetiandong.com/" target="_blank" title="叶天冬博客">叶天冬博客</a></li>
+            <li><a href="http://oss.so/" target="_blank" title="生命不息，折腾不止，关注前端，关注Z-BlogPHP">橙色阳光</a></li>
+            <li><a href="http://www.tusay.net/" target="_blank" title="关注IT技术和学习分享,提供ZBlogPHP主题模板插件定制！">涂涂研版</a></li>
+            <li><a href="http://www.dingchunhua.name/" target="_blank" title="丁春华博客">丁春华</a></li>
+            <li><a href="http://www.myxzy.com/" target="_blank" title="电脑技术、软件教程、代码资料、网站技术、原创文章">星知苑</a></li>
+            <li><a href="http://huhen.com/" target="_blank" title="小虎博客">小虎博客</a></li>
+            <li><a href="http://www.gridsmedia.com/" target="_blank" title="网格传媒">网格传媒</a></li>
+            <li><a href="http://www.paipk.com/" target="_blank" title="拍拍看科技">拍拍看科技</a></li>
+            <li><a href="http://www.songhaifeng.com/" target="_blank" title="小锋博客">小锋博客</a></li>
+            <li><a href="https://zhangge.net/" target="_blank" title="张戈博客">张戈博客</a></li>
+        </ul>
+    </div>
+
+    <div class="footer-line"></div>
+    <div class="footer-bottom wrapper">
+        <p>
+            <i class="fa">chenxingzhou.xin</i>
+            <a href="/">陈星州博客</a>
+            </br>
+
+            <a target="_blank" href="http://www.miitbeian.gov.cn/"
+               style="padding-top: 6px;text-decoration:none;height: 20px;line-height:20px;">
+                <img src="public/picture/icon-police.png" class="beian-ico">©2017 蜀ICP备17024126号
+            </a>
+
+            <script>
+                var _hmt = _hmt || [];
+                (function () {
+                    var hm = document.createElement("script");
+                    hm.src = "https://hm.baidu.com/hm.js?9c8b0606635705c6ed808dd504a50134";
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(hm, s);
+                })();
+            </script>
+            <script>
+                (function () {
+                    var bp = document.createElement('script');
+                    var curProtocol = window.location.protocol.split(':')[0];
+                    if (curProtocol === 'https') {
+                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+                    }
+                    else {
+                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+                    }
+                    var s = document.getElementsByTagName("script")[0];
+                    s.parentNode.insertBefore(bp, s);
+                })();
+            </script>
+            <script>
+                (function () {
+                    var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f88731ae93ae260bb9f060fcbd952500" : "https://jspassport.ssl.qhimg.com/11.0.1.js?f88731ae93ae260bb9f060fcbd952500";
+                    document.write('<script src="' + src + '" id="sozz"><\/script>');
+                })();
+            </script>
+        </p>
+    </div>
+    <div id="backTop" style="display: none;">
+        <a href="javascript:scroll(0,0)" class="backtotop" title="返回顶部"><i class="icon-arrow-up"></i></a>
+    </div>
+</footer>
+<div class="none">
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script>
+        var swiper = new Swiper('.swiper-home', {
+            pagination: '.swiper-home-pagination',
+            nextButton: '.swiper-home-button-next',
+            prevButton: '.swiper-home-button-prev',
+            paginationClickable: true,
+            centeredSlides: true,
+            autoplay: 5000,
+            autoplayDisableOnInteraction: false,
+            lazyLoading: true,
+            mousewheelControl: false,
+            keyboardControl: true,
+            loop: true
+        });
+    </script>
+
+</div>
+</body>
+</html>

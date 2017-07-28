@@ -1,0 +1,52 @@
+<!--layout.html 是一个模板，这里继承这个模板-->
+{% extends 'layout.html' %}
+
+<!--覆写main这个block区块-->
+{% block main%}
+<ol class="breadcrumb">
+    <li><a href="/admin">管理首页</a></li>
+    <li><span>文章管理</span></li>
+    <li><span>添加文章</span></li>
+</ol>
+<h3>添加文章</h3>
+
+<form role="form" method="post">
+    <div class="form-group">
+        <label for="type">分类：</label>
+        <select name="type" id="type" class="form-control">
+            {% for item in selectLi%}
+            <option value="{{item.classification_id}}">{{item.classification}}</option>
+            {% endfor%}
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="source">文章来源：</label>
+        <select name="source" id="source" class="form-control">
+            <option value="原创">原创</option>
+            <option value="投稿">投稿</option>
+            <option value="转载">转载</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="title">标题：</label>
+        <input type="text" name="title" id="title" class="form-control" placeholder="请输入文章标题">
+    </div>
+
+    <div class="form-group">
+        <label for="introduction">简介：</label>
+        <textarea class="form-control" rows="5" id="introduction" name="introduction" placeholder="请输入简介"></textarea>
+    </div>
+
+    <div>
+        <label for="content">内容：</label>
+        <textarea class="form-control" rows="10" id="content" name="content" placeholder="请输入内容"></textarea>
+
+    </div>
+    <br/>
+    <button type="submit" class="btn btn-default">提交</button>
+</form>
+
+{% endblock%}
+
