@@ -5,13 +5,22 @@
 
 var mysql = require("mysql");
 
+// var client = mysql.createPool({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '123456',
+//     database:"blog",
+//     port: 3306
+// });
+
 var client = mysql.createPool({
-    host: 'localhost',
+    host: '47.93.52.252',
     user: 'root',
-    password: '123456',
+    password: '654321',
     database:"blog",
     port: 3306
 });
+
 console.log("链接数据库");
 function query(sql,callback){
     client.getConnection(function(err,connection){
