@@ -57,8 +57,8 @@ app.use(function (req,res,next) {
 * */
 app.use("/admin",require("./routers/admin"));
 app.use("/api",require("./routers/api"));
-app.use("/",require("./routers/main"))
+app.use("/",require("./routers/main"));
 
 
-app.listen(10000);
+app.listen(80);
 
