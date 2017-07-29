@@ -60,5 +60,5 @@ app.use("/api",require("./routers/api"));
 app.use("/",require("./routers/main"));
 
 
-app.listen(10000);
+app.listen(80);
 
