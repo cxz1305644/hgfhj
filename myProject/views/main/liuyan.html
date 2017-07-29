@@ -1,158 +1,49 @@
-﻿<!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <meta name="renderer" content="webkit">
-    <title>留言本 - 李洋个人博客 - 分享新鲜科技和IT技术的个人原创博客网站</title>
-    <meta name="description" content="陈星州个人博客，是一个记录自己互联网技术的博客（chen.Com）。"/>
-    <meta name="keywords" content="陈星州,会飞的Tiger,liunx,java,web前端,网站,互联网,个人博客,node,mysql"/>
-    <meta name="author" content="陈星州,会飞的Tiger">
-    <meta name="generator" content="node,java"/>
-    <link rel="stylesheet" rev="stylesheet" href="public/css/style.css" type="text/css" media="all"/>
-    <link rel="stylesheet" href="public/css/font-awesome.min.css" media="screen" type="text/css"/>
-    <script src="public/js/common.js" type="text/javascript"></script>
-    <script src="public/js/c_html_js_add.js" type="text/javascript"></script>
-    <script type="text/javascript" src="public/js/jquery.lazyload.js"></script>
-    <!--[if lte IE 7]>
-    <link rel="stylesheet" href="public/css/font-awesome-ie7.min.css"><![endif]-->
-    <!--[if lt IE 9]>
-    <script src="public/js/html5.js"></script>
-    <script src="public/js/ie9.js"></script><![endif]-->
-</head>
-<body class="home blog custom-background">
-<header class="header">
-    <section class="header-content wrapper">
-        <div class="header-roup">
-            <h1 class="left"><a href="http://www.talklee.com/" class="logo" title="李洋个人博客"><img
-                    src="public/picture/logo_example.png" alt="李洋个人博客"></a></h1>
-            <span class="blog-title left">分享新鲜科技和IT技术的个人原创博客网站</span>
-        </div>
-        <form class="search-form right" name="search" method="post"
-              action="http://www.talklee.com/zb_system/cmd.php?act=search">
-            <input class="search-input left" name="q" placeholder="请输入搜索内容..." type="text">
-            <span class="search-submit right">
-				<button id="btnPost" type="submit"></button>
-			</span>
-        </form>
-    </section>
-    <div class="clearfix"></div>
-    <nav class="header-nav" data-type="page" data-infoid="2">
-        <div class="nav-sjlogo"><i class="fa fa-navicon"></i><a href="http://www.talklee.com/"><img
-                src="public/picture/logo_example.png" alt="李洋个人博客"></a></div>
-        <div class="nav-sousuo"><!-- Search begin -->
-            <div class="mini_search">
-                <form name="search" class="searchform" method="post"
-                      action="http://www.talklee.com/zb_system/cmd.php?act=search">
-                    <input class="searchInput" type="text" name="q" size="11" placeholder="请输入搜索内容..." id="ls"/>
-                    <button type="submit" class="btn-search dtb2" value=""><i class="fa fa-search"></i></button>
-                </form>
-            </div>
-            <a id="mo-so" href="javascript:void(0);"><i class="fa fa-search icon-search"></i></a>
-        </div>
-        <aside class="mobile_aside mobile_nav">
-            <div class="header-menu mobile-menu">
-                <ul class="menu">
-                    <li id="nvabar-item-index"><a href="#">首页</a></li>
-                    <li id="navbar-category-5"><a href="info.html">web前端</a></li>
-                    <li id="navbar-category-1" class="menu-item-has-children"><a href="http://www.talklee.com/tech/">IT技术</a>
-                        <ul class="dropdown-menu sub-menu">
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
-                                    href="/tags-24.html">java</a></li>
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
-                                    href="/tags-25.html">linux</a></li>
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
-                                    href="/tags-25.html">python</a></li>
-                        </ul>
-                    </li>
-                    <li id="navbar-category-6" class="menu-item-has-children"><a href="http://www.talklee.com/zhuti/">数据库</a>
-                        <ul class="dropdown-menu sub-menu">
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
-                                    href="/tags-24.html">mysql</a></li>
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category"><a
-                                    href="/tags-25.html">mongodb</a></li>
-                        </ul>
-                    </li>
-
-                    <li id="navbar-category-4"><a href="http://www.talklee.com/talklee/">互联网</a></li>
-                    <li id="navbar-page-2" class="menu-item-has-children "><a href="/liuyan">留言本</a>
-                        <ul class="dropdown-menu sub-menu">
-                            <li id="navbar-page-24"><a href="http://www.talklee.com/tougao/">本站投稿</a></li>
-                            <li class="menu-item menu-item-type-taxonomy menu-item-object-category "><a href="/ads/">广告投放</a>
-                            </li>
-                            <li id="navbar-page-53" class="menu-item menu-item-type-post_type menu-item-object-page"><a
-                                    href="/zanzhu/" class="current-on">赞助我们</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </aside>
-    </nav>
-    <div class="top-bar">
-        <div class="gonggao">
-            <nav id="callboard" class="top-nav left">
-                <ul class="menu">
-                    <li><i class="fa fa-bullhorn"></i>Z-blog主题交流群，<a target="_blank"
-                                                                     href="//shang.qq.com/wpa/qunwpa?idkey=c30722f3c9cba68d73b80ad8635ba992a9f29a0eeb127c3b789f5d4e668a6552"><img
-                            border="0" src="public/picture/group.png" alt="Z-Blog Talklee. ↑" title="Z-Blog Talklee. ↑"></a>
-                    </li>
-                    <li><i class="fa fa-bullhorn"></i>李洋个人博客唯一域名：http://www.talklee.com/</li>
-                    <li><i class="fa fa-bullhorn"></i>林文正姿护眼笔总代理QQ/微信：530758820</li>
-                </ul>
-            </nav>
-            <div class="user-front top-menu right">
-                <div class="login-reg left">
-                    <ul>
-                        <li>
-                            <i class="fa fa fa-tree"></i>您好，欢迎到访李洋个人博客! <i class="fa fa-sign-in"></i> <a
-                                href="http://www.talklee.com/zb_system/cmd.php?act=login">会员登录</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-</header>
+﻿{% include "../head.html" %}
 <div class="wrapper">
-    <section class="container">
+    <div class="container container-home">
         <div class="content-wrap left">
             <div class="navcates">
-                <i class="fa fa-home"></i>当前位置：<a href="/liuyan">李洋个人博客</a> » <a href="/liuyan" rel="bookmark"
-                                                                                 target="_blank"
-                                                                                 title="正在阅读 留言本">留言本</a></div>
+                <i class="fa fa-home"></i>当前位置：
+                <a href="/">首页</a> »
+                <a href="/liuyan" rel="bookmark" target="_blank" title="正在阅读留言本">留言本</a>
+            </div>
 
             <div class="content single-content">
                 <header class="post-head">
-                    <h2><a href="/liuyan" rel="bookmark" target="_blank" title="正在阅读 留言本">留言本</a></h2>
-                    <div class="info left"><!-- 文章信息 -->
-                        <span class="date"><i class="fa fa-clock-o"></i>2013-02-17</span>
-                        <span class="view"><i class="fa fa-eye"></i>浏览(13397)</span>
-                        <span class="comment"><i class="fa fa-comment"></i><a
-                                href="http://www.talklee.com/guestbook/#comment">评论(127)</a></span>
-                    </div>
-                    <div id="font-change" class="right"><!-- 字体大小切换 -->
-                        <span id="font-dec"><a href="#" title="减小字体">-</a></span>
-                        <span id="font-n"><a href="#" title="默认大小">N</a></span>
-                        <span id="font-inc"><a href="#" title="增大字体">+</a></span>
+                    <h2>
+                        <a href="/liuyan" rel="bookmark" target="_blank" title="正在阅读留言本">留言本</a>
+                    </h2>
+                    <!-- 文章信息 -->
+                    <div class="info left">
+                        <span class="date">
+                            <i class="fa fa-clock-o"></i>2013-02-17
+                        </span>
+                        <span class="view">
+                            <i class="fa fa-eye"></i>浏览(13397)
+                        </span>
+                        <span class="comment">
+                            <i class="fa fa-comment"></i>
+                            <a href="http://www.chenxingzhou.com/guestbook/#comment">评论(127)</a>
+                        </span>
                     </div>
                 </header>
-                <div class="ad ad-single">
-                    <a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img
-                            src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a>
-                </div>
+                <!--<div class="ad ad-single">-->
+                    <!--<a href="http://s.click.taobao.com/pqo03Qx" target="_blank">-->
+                        <!--<img src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器">-->
+                    <!--</a>-->
+                <!--</div>-->
                 <div class="entry">
+                    <p style="text-indent: 2em;">本人搭上了80后的首班车，来到了这个所谓的21世纪。网络时代的爬虫，熟悉dz、php论坛程序，z-blog博客程序，淘宝网店。对网站建站略懂一二，对电子商务一知半解 !</p>
                     <p style="text-indent: 2em;">
-                        本人搭上了80后的首班车，来到了这个所谓的21世纪。网络时代的爬虫，熟悉dz、php论坛程序，z-blog博客程序，淘宝网店。对网站建站略懂一二，对电子商务一知半解 !</p>
-                    <p style="text-indent: 2em;"><strong>站长梦想</strong><br/>希望可以简历一个真正实用有意义的网站，当然自己还是想在网络上成就一番自己的事业，虽然有点不着边，但是还是有可能，因为有梦想，才会有成功。
+                        <strong>站长梦想</strong><br/>希望可以简历一个真正实用有意义的网站，当然自己还是想在网络上成就一番自己的事业，虽然有点不着边，但是还是有可能，因为有梦想，才会有成功。
                     </p>
                     <p style="text-indent: 0em; text-align: center;"><img
                             src="public/picture/201705151494818972855449.png" title="我是站长.png" alt="我是站长.png"/></p>
-                    <p style="text-indent: 2em;">本站简介名称：李洋博客 &nbsp; &nbsp;<br/>链接：<a href="http://www.talklee.com"
-                                                                                     target="_self">http://www.talklee.com/</a>&nbsp;内容：一个基于建站技术分享交流，博客推广，网络服务的一站式博客发展：致力于打造一个经典博客网，为网民提供更方便的一站式网上冲浪服务。希望可以和站长朋友们一起学习交流！
+                    <p style="text-indent: 2em;">本站简介名称：陈星州博客 &nbsp; &nbsp;<br/>
+                        链接：<a href="http://www.chenxingzhou.com" target="_self">http://www.chenxingzhou.com/</a>&nbsp;内容：一个基于建站技术分享交流，博客推广，网络服务的一站式博客发展：致力于打造一个经典博客网，为网民提供更方便的一站式网上冲浪服务。希望可以和站长朋友们一起学习交流！
                     </p>
-                    <p style="text-indent: 2em;">导航简介名称：521导航 &nbsp; &nbsp;<br/>链接：<a href="http://www.00521.cn"
-                                                                                      target="_blank">http://www.00521.cn/</a><br/>内容：一个基于导航源码的技术分享交流，源码分享，网络服务的一站式导航。发展：致力于打造一个全新模式的导航网，为网民提供更方便的一站式网上冲浪服务。希望可以和站长朋友们一起学习交流！
-                    </p></div>
+
+                </div>
                 <div id="authorarea">
                     <div class="authorinfo">
                         <div class="author-avater">
@@ -185,24 +76,12 @@
                                                                                                    class="bds_more"
                                                                                                    data-cmd="more"></a>
                         </div>
-                        <script>window._bd_share_config = {
-                            "common": {
-                                "bdSnsKey": {},
-                                "bdText": "",
-                                "bdMini": "2",
-                                "bdMiniList": false,
-                                "bdPic": "",
-                                "bdStyle": "1",
-                                "bdSize": "24"
-                            }, "share": {}
-                        };
-                        with (document)0[(getElementsByTagName('head')[0] || body).appendChild(createElement('script')).src = 'http://www.talklee.com/static/api/js/share.js?v=89860593.js?cdnversion=' + ~(-new Date() / 36e5)];</script>
-                    </div>
+                        </div>
                 </div>
-                <div class="ad ad-single">
-                    <a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img
-                            src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a>
-                </div>
+                <!--<div class="ad ad-single">-->
+                    <!--<a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img-->
+                            <!--src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a>-->
+                <!--</div>-->
                 <section id="comments" class="">
                     <!--评论输出-->
                     <div class="comment-tab"><span class="come-comt"><i class="fa fa-comments"></i> 评论列表 <span
@@ -216,8 +95,8 @@
                             <div class="msgname">
                                 <span class="dot">1#</span><a
                                     href="http://www.talklee.com/zb_users/theme/brieflee/goto.php?url=http://www.nnnnn.com"
-                                    rel="nofollow" target="_blank">陈</a><span>2017-07-16<a href="#reply"
-                                                                                           onclick="RevertComment('967')">回复</a></span>
+                                    rel="nofollow" target="_blank">陈</a>
+                                <span>2017-07-16<a href="#reply" onclick="RevertComment('967')">回复</a></span>
                             </div>
                             <div class="msgarticle">
                                 老铁，刚准备弄个博客，你的博客style太好看了，参考下你的网站样式，可以不！谢了！<label id="AjaxComment967"></label></div>
@@ -336,8 +215,13 @@
                     <!--评论翻页条输出结束-->
                     <!--评论框-->
                     <div class="commentpost" id="comment">
-                        <h4><i class="fa fa-pencil"></i><span><a rel="nofollow" id="cancel-reply" href="#comment"
-                                                                 style="display:none;"><small>取消回复</small></a></span>发表评论
+                        <h4>
+                            <i class="fa fa-pencil"></i>
+                            <span>
+                                <a rel="nofollow" id="cancel-reply" href="#comment" style="display:none;">
+                                    <small>取消回复</small>
+                                </a>
+                            </span>发表评论
                         </h4>
                         <form id="frmSumbit" target="_self" method="post"
                               action="http://www.talklee.com/zb_system/cmd.php?act=cmt&amp;postid=2&amp;key=62cfa9342859e47920ff23c241d3005e">
@@ -358,21 +242,6 @@
                             </div>
                             <!--verify-->
                             <div id="comment-tools">
-                                <a title="粗体字"
-                                   onmousedown="InsertText(objActive,ReplaceText(objActive,'[B]','[/B]'),true);"><i
-                                        class="fa fa-bold"></i></a>
-                                <a title="斜体字"
-                                   onmousedown="InsertText(objActive,ReplaceText(objActive,'[I]','[/I]'),true);"><i
-                                        class="fa fa-italic"></i></a>
-                                <a title="下划线"
-                                   onmousedown="InsertText(objActive,ReplaceText(objActive,'[U]','[/U]'),true);"><i
-                                        class="fa fa-underline"></i></a>
-                                <a title="删除线"
-                                   onmousedown="InsertText(objActive,ReplaceText(objActive,'[S]','[/S]'),true);"><i
-                                        class="fa fa-strikethrough"></i></a>
-                                <a href="javascript:addNumber('文章不错,写的很好！')">好</a>
-                                <a href="javascript:addNumber('我顶！！顶顶顶')">顶</a>
-                                <a href="javascript:addNumber('我踩！我踩踩踩')">踩</a>
                                 <!--<a href="javascript:;" class="face-show"><i class="fa fa-smile-o"></i></a>
                                 <div id="ComtoolsFrame" class="ComtoolsFrame" style="display: none;"><img src="public/picture/angry.png" alt="angry" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/awkward.png" alt="awkward" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/boom.png" alt="boom" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/bye.png" alt="bye" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/chagrin.png" alt="chagrin" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/confuse.png" alt="confuse" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/cry.png" alt="cry" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/dog.png" alt="dog" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/effort.png" alt="effort" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/exclaim.png" alt="exclaim" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/grimace.png" alt="grimace" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/grin.png" alt="grin" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/kiss.png" alt="kiss" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/laugh.png" alt="laugh" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/left.png" alt="left" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/love.png" alt="love" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/mad.png" alt="mad" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/neutral.png" alt="neutral" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/nose.png" alt="nose" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/right.png" alt="right" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/roll.png" alt="roll" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/shutup.png" alt="shutup" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/surprise.png" alt="surprise" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/torment.png" alt="torment" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/twisted.png" alt="twisted" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/waii.png" alt="waii" onclick="InsertText(objActive,'['+this.alt+']',false);"></div>-->
                             </div>
@@ -387,206 +256,9 @@
                 </section>
             </div>
         </div>
-        <aside class="sidebar right">
-            <article class="sidebar-widget" id="shangxi">
-                <h3><i class="fa fa-asterisk" aria-hidden="true"></i>赏析</h3>
-                <div class="shangxi">
-                    <b>《过零丁洋·文天祥》</b>
-                    <p>辛苦遭逢起一经，干戈寥落四周星。</p>
-                    <p>山河破碎风飘絮，身世浮沉雨打萍。</p>
-                    <p>惶恐滩头说惶恐，零丁洋里叹零丁。</p>
-                    <p>人生自古谁无死？留取丹心照汗青。</p></div>
-            </article>
 
-            <article class="sidebar-widget" id="divStatistics">
-                <span class="icon"><i class="fa fa-reorder"></i></span>
-                <h3>站点信息</h3>
-                <ul class="divStatistics">
-                    <li>作&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;者 : 陈星州</li>
-                    <li>文章总数 : 240</li>
-                    <li>评论总数 : 758</li>
-                    <li>浏览总数 : 562712</li>
-                    <li>标签总数 : 25</li>
-                </ul>
-            </article>
-            <article class="sidebar-widget" id="newDate">
-                <span class="icon"><i class="fa fa-reorder"></i></span>
-                <h3>最新文章</h3>
-                <ul class="widget_img">
-                    <li><a href="http://www.talklee.com/blog/104.html" title="Word2010工具栏消失怎么解决(图文教程) (2)"><img
-                            src="public/picture/201601121452574882443657.jpg"
-                            alt="Word2010工具栏消失怎么解决(图文教程)"
-                            style="display: block;"><span>Word2010工具栏消失怎么解决(图文教程)</span></a>2016-01-12
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/250.html" title="网站页面滚动加载动画JS特效（二） (2)"><img
-                            src="public/picture/201706141497400651609637.jpg"
-                            alt="网站页面滚动加载动画JS特效（二）" style="display: block;"><span>网站页面滚动加载动画JS特效（二）</span></a>2017-06-14
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/221.html" title="笔记本重装Win7，进不U启的解决方法。 (2)"><img
-                            src="public/picture/201703034223_9966.png"
-                            alt="笔记本重装Win7，进不U启的解决方法。" style="display: block;"><span>笔记本重装Win7，进不U启的解决方法。</span></a>2017-03-03
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/192.html" title="博客全站启用HTTPS (11)"><img
-                            src="public/picture/201611082572_4219.jpg"
-                            alt="博客全站启用HTTPS" style="display: block;"><span>博客全站启用HTTPS</span></a>2016-11-08
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/242.html" title="做网站优化要多少钱？SEO优化怎么收费？ (1)"><img
-                            src="public/picture/201704281493344399137802.jpg"
-                            alt="做网站优化要多少钱？SEO优化怎么收费？" style="display: block;"><span>做网站优化要多少钱？SEO优化怎么收费？</span></a>2017-04-28
-                    </li>
-            </article>
+        {% include "../aside.html" %}
 
-            <article class="sidebar-widget" id="widget_img">
-                <span class="icon"><i class="fa fa-reorder"></i></span>
-                <h3>热门文章</h3>
-                <ul class="widget_img">
-                    <li><a href="http://www.talklee.com/blog/104.html" title="Word2010工具栏消失怎么解决(图文教程) (2)"><img
-                            src="public/picture/201601121452574882443657.jpg"
-                            alt="Word2010工具栏消失怎么解决(图文教程)"
-                            style="display: block;"><span>Word2010工具栏消失怎么解决(图文教程)</span></a>2016-01-12
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/250.html" title="网站页面滚动加载动画JS特效（二） (2)"><img
-                            src="public/picture/201706141497400651609637.jpg"
-                            alt="网站页面滚动加载动画JS特效（二）" style="display: block;"><span>网站页面滚动加载动画JS特效（二）</span></a>2017-06-14
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/221.html" title="笔记本重装Win7，进不U启的解决方法。 (2)"><img
-                            src="public/picture/201703034223_9966.png"
-                            alt="笔记本重装Win7，进不U启的解决方法。" style="display: block;"><span>笔记本重装Win7，进不U启的解决方法。</span></a>2017-03-03
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/192.html" title="博客全站启用HTTPS (11)"><img
-                            src="public/picture/201611082572_4219.jpg"
-                            alt="博客全站启用HTTPS" style="display: block;"><span>博客全站启用HTTPS</span></a>2016-11-08
-                    </li>
-                    <li><a href="http://www.talklee.com/blog/242.html" title="做网站优化要多少钱？SEO优化怎么收费？ (1)"><img
-                            src="public/picture/201704281493344399137802.jpg"
-                            alt="做网站优化要多少钱？SEO优化怎么收费？" style="display: block;"><span>做网站优化要多少钱？SEO优化怎么收费？</span></a>2017-04-28
-                    </li>
-                </ul>
-            </article>
-
-
-            <article class="sidebar-widget" id="divCatalog">
-                <span class="icon"><i class="fa fa-reorder"></i></span>
-                <h3>网站分类</h3>
-                <ul class="divCatalog">
-                    <li><a href="http://www.talklee.com/info/">IT技术</a></li>
-                    <li><a href="http://www.talklee.com/tech/">互联网</a></li>
-                    <li><a href="http://www.talklee.com/talklee/">数据库</a></li>
-                    <li><a href="http://www.talklee.com/zhuti/">留言</a></li>
-                </ul>
-            </article>
-            <article class="sidebar-widget" id="divHottags">
-                <span class="icon"><i class="fa fa-reorder"></i></span>
-                <h3>热门标签</h3>
-                <ul class="divHottags">
-                    <li><a href="http://www.talklee.com/tags-5.html" title="web前端">web前端</a></li>
-                    <li><a href="http://www.talklee.com/tags-9.html" title="java">java</a></li>
-                    <li><a href="http://www.talklee.com/tags-4.html" title="linux">linux</a></li>
-                    <li><a href="http://www.talklee.com/tags-20.html" title="mysql">mysql</a></li>
-                    <li><a href="http://www.talklee.com/tags-19.html" title="node">node</a></li>
-                    <li><a href="http://www.talklee.com/tags-19.html" title="node">python</a></li>
-                    <li><a href="http://www.talklee.com/tags-19.html" title="mongodb">mongodb</a></li>
-                    <li><a href="http://www.talklee.com/tags-15.html" title="站长">javascript</a></li>
-                    <li><a href="http://www.talklee.com/tags-8.html" title="数据">数据</a></li>
-                    <li><a href="http://www.talklee.com/tags-11.html" title="IT">IT</a></li>
-                    <li><a href="http://www.talklee.com/tags-18.html" title="建站">建站</a></li>
-                    <li><a href="http://www.talklee.com/tags-27.html" title="教程">教程</a></li>
-                    <li><a href="http://www.talklee.com/tags-1.html" title="学习">学习</a></li>
-                    <li><a href="http://www.talklee.com/tags-3.html" title="交流">交流</a></li>
-                    <li><a href="http://www.talklee.com/tags-21.html" title="互联网">互联网</a></li>
-
-                </ul>
-            </article>
-
-
-
-
-
-
-            <!--广告赞助-->
-            <!--<div class="movead">-->
-            <!--<article class="sidebar-widget" id="movead">-->
-            <!--<span class="icon"><i class="fa fa-reorder"></i></span>-->
-            <!--<h3>广告赞助</h3>-->
-            <!--<ul>-->
-            <!--<li><a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img-->
-            <!--src="public/picture/201707061499321087692507.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a></li>-->
-            <!--</ul>-->
-            <!--</article>-->
-            <!--</div>-->
-
-        </aside>
-    </section>
+    </div>
 </div>
-<footer class="footer">
-    <div class="footer_link wrapper">
-        <ul>
-            <li><a rel="nofollow" href="/about/" target="_blank">关于我们</a><a rel="nofollow" href="/archive/"
-                                                                            target="_blank">Sitemap</a><a rel="nofollow"
-                                                                                                          href="/sitemap.xml"
-                                                                                                          target="_blank">谷歌地图</a>
-            </li>
-        </ul>
-    </div>
-    <div class="footer-line"></div>
-    <div class="footer-bottom wrapper">
-        <p>Copyright<i class="fa fa-copyright"></i>2015-2017<a href="/">李洋博客.</a>基于<a href="http://www.zblogcn.com/"
-                                                                                      title="RainbowSoft Z-BlogPHP"
-                                                                                      target="_blank">Z-BlogPHP</a>搭建<a
-                href="http://www.miibeian.gov.cn" rel="nofollow" target="_blank" title="网站ICP备案号">辽ICP备15015379号<img
-                class="beian-ico" width="14" height="16" style="margin-left: 4px;" src="public/picture/copy_rignt.png"></a></br>
-            <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=21011202000115"
-               style="padding-top: 6px;text-decoration:none;height: 20px;line-height:20px;"><img
-                    src="public/picture/icon-police.png" class="beian-ico">辽公网安备21011202000115号</a>托管于<a
-                    href="http://www.qcloud.com/redirect.php?redirect=1004&cps_key=a2ad20fce47f8a6fb4600bfc80b3d4c7"
-                    rel="nofollow" target="_blank">腾讯云.</a>
-            <script>
-                var _hmt = _hmt || [];
-                (function () {
-                    var hm = document.createElement("script");
-                    hm.src = "https://hm.baidu.com/hm.js?9c8b0606635705c6ed808dd504a50134";
-                    var s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(hm, s);
-                })();
-            </script>
-            <script>
-                (function () {
-                    var bp = document.createElement('script');
-                    var curProtocol = window.location.protocol.split(':')[0];
-                    if (curProtocol === 'https') {
-                        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-                    }
-                    else {
-                        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-                    }
-                    var s = document.getElementsByTagName("script")[0];
-                    s.parentNode.insertBefore(bp, s);
-                })();
-            </script>
-            <script>
-                (function () {
-                    var src = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?f88731ae93ae260bb9f060fcbd952500" : "https://jspassport.ssl.qhimg.com/11.0.1.js?f88731ae93ae260bb9f060fcbd952500";
-                    document.write('<script src="' + src + '" id="sozz"><\/script>');
-                })();
-            </script>
-        </p>
-    </div>
-    <div id="backTop" style="display: none;">
-        <a href="javascript:scroll(0,0)" class="backtotop" title="返回顶部"><i class="icon-arrow-up"></i></a>
-    </div>
-</footer>
-<div class="none">
-    <script type="text/javascript" src="public/js/custom.js"></script>
-    <script>
-        var wow = new WOW({
-            boxClass: 'wow',
-            animateClass: 'animated',
-            offset: 0,
-            mobile: true,
-            live: true
-        });
-        wow.init();
-    </script>
-</div>
-</body>
-</html><!--31.93 ms , 13 query , -522kb memory , 0 error-->
+{% include "../footer.html" %}

@@ -108,6 +108,11 @@ router.get("/java",function(req,res,next){
 router.get("/essay",function(req,res,next){
     res.render("main/essay");
 });
+router.get("/template",function(req,res,next){
+    var id = req.query.id || "";
+    var getSql = "select * from article,article_classification "
+    res.render("main/template");
+});
 module.exports = router;
 
 
