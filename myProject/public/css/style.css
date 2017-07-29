@@ -1,5 +1,5 @@
 ﻿@charset "utf-8";
-/*Theme Name: 李洋博客
+/*Theme Name: 陈星州博客
 Theme URI: http://www.talklee.com/
 Description: 简洁响应式两栏风格主题,完美支持移动设备！
 Tags: 扁平化,响应式,简洁黑白色,多设备支持
@@ -59,8 +59,8 @@ span.url {display: block;margin-top: 20px;padding: 0;}
 .header-roup {overflow:hidden;float:left;margin-bottom:36px;}
 .header-roup h1 {line-height:52px;padding:4px 8px 4px 4px;}
 .header-roup h1 a {color:#f24c27;}
-.header-roup h1 a,.header-roup h1 a img {min-height:52px;max-height:52px;width:auto;display:block;overflow:hidden;}
-.blog-title {line-height:30px;margin-top:9px;height:40px;padding:4px 4px 4px 15px;border-left:1px #eee solid;font-size:14px;}
+.header-roup h1 a,.header-roup h1 a img {min-height:56px;max-height:56px;width:auto;display:block;overflow:hidden;}
+.blog-title {line-height:40px;margin-top:9px;height:40px;padding:4px 4px 4px 15px;border-left:1px #eee solid;font-size:14px;}
 .search-form {margin:12px 0;height:40px;padding-right:48px;position:relative;}
 .search-submit {position:absolute;display:block;top:0;right:0;}
 .search-form .search-submit:before {content:'';height:0;width:0;display:block;border:8px transparent solid;border-left-width:0;border-right-color:#f24c27;position:absolute;left:-6px;top:12px;}
