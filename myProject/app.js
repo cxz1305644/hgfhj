@@ -6,15 +6,18 @@
 var express = require("express");
 var swig = require("swig");
 var mysql = require("mysql");
+var path         = require('path');
 // 中间件  处理请求
 var bodyParser = require("body-parser");
 var Cookies = require("cookies");
+var ueditor      = require('ueditor');
 // 创建 app应用  ,类似于 http.createServer()
 var app = express();
 
 // 设置静态文件托管
 // 当用户访问路径包含public时，对应到当前目录下的public文件夹
 app.use("/public",express.static(__dirname + "/public"));
+
 
 //配置模板应用
 // 第一个参数 模板引擎的后缀  第二个参数 解析模板内容的方法
@@ -44,6 +47,36 @@ app.use(function (req,res,next) {
      }
      next();
 });
+
+//ueditor
+app.use(express.static(path.join(__dirname, 'public')));
+app.use("/libs/ueditor/ue", ueditor(path.join(__dirname, 'public'), function (req, res, next) {
+
+    // ueditor 客户发起上传图片请求
+    if (req.query.action === 'uploadimage') {
+        var foo = req.ueditor;
+        var date = new Date();
+        var imgname = req.ueditor.filename;
+
+        var img_url = '/images';
+        res.ue_up(img_url); //你只要输入要保存的地址 。保存操作交给ueditor来做
+    }
+
+    //  客户端发起图片列表请求
+    else if (req.query.action === 'listimage') {
+        var dir_url = '/images';
+        res.ue_list(dir_url);  // 客户端会列出 dir_url 目录下的所有图片
+    }
+
+    // 客户端发起其它请求
+    else {
+
+        res.setHeader('Content-Type', 'application/json');
+        res.redirect('/libs/ueditor/nodejs/config.json')
+    }
+
+}));
+
 /*
 * 首页
 *   req 是require对象
@@ -60,5 +93,5 @@ app.use("/api",require("./routers/api"));
 app.use("/",require("./routers/main"));
 
 
-app.listen(80);
+app.listen(10000);
 

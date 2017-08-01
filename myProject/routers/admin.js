@@ -6,9 +6,13 @@
 var express = require("express");
 var router = express.Router();
 var db = require("../db");
-
+var responseData;
 router.use(function(req,res,next){
-
+    responseData = {
+        code : 0,
+        message : "",
+        token : "0"
+    };
     next();
 });
 
@@ -80,7 +84,7 @@ router.get("/category",function(req,res,next){
      * */
 
     var page = Number(req.query.page || 1);
-    var m = 2;
+    var m = 10;
     var pages = 0;
     var searchUserAllSql = "select * from article_classification";
     var n = 0;
@@ -320,7 +324,7 @@ router.get("/content",function (req,res,next) {
      * */
 
     var page = Number(req.query.page || 1);
-    var m = 2;
+    var m = 10;
     var pages = 0;
     var searchAllArticleSql1 = "select * from article,article_classification where article.classification_id = article_classification.classification_id ";
     var n = 0;
@@ -383,46 +387,25 @@ router.get("/content/add",function (req,res,next) {
 * 添加文章接口
 * */
 router.post("/content/add",function (req,res,next) {
-    var id = req.body.type;
+    var id = req.body.id;
     var title = req.body.title;
-    var description = req.body.introduction;
+    var description = req.body.description;
     var content = req.body.content;
     var source = req.body.source;
-    if(title == "" ){
-        res.render("admin/error",{
-            userInfo : req.userInfo,
-            message : "请输入标题"
-        });
-        return;
-    };
-    console.log(req.body.content);
-    if(content == ""){
-        res.render("admin/error",{
-            userInfo : req.userInfo,
-            message : "请输入内容"
-        });
-        return;
-    };
-    if(description == ""){
-        res.render("admin/error",{
-            userInfo : req.userInfo,
-            message : "请输入简介"
-        });
-        return;
-    };
-
     var addArticleSql = "insert into article(classification_id,title,description,article,source) values ('"+ id+"','"+ title+"','" +description +"','"+ content+ "','" +source + "')";
-    console.log(addArticleSql);
+
     db.query(addArticleSql,function (err,result) {
         if(err){
             console.log("error:" + err.message);
+            responseData.code = "-1";
+            responseData.message = "数据库链接错误";
+            res.json(responseData);
             return;
         }else {
-            res.render("admin/success",{
-                userInfo : req.userInfo,
-                message : "添加成功",
-                url:"content"
-            });
+            responseData.code = "0";
+            responseData.message = "文章添加成功";
+            res.json(responseData);
+            return;
         }
     })
 

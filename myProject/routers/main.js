@@ -110,8 +110,18 @@ router.get("/essay",function(req,res,next){
 });
 router.get("/template",function(req,res,next){
     var id = req.query.id || "";
-    var getSql = "select * from article,article_classification "
-    res.render("main/template");
+    var getSql = "select * from article where id=" + id;
+    db.query(getSql,function (err,result) {
+        if(err){
+            console.log("error:" + err.message);
+            return;
+        }else{
+            res.render("main/template",{
+                data:result
+            });
+        }
+    });
+
 });
 module.exports = router;
 

@@ -3,6 +3,7 @@
  */
 
 $(function(){
+
     $("#menu2 li a").wrapInner( '<span class="out"></span>' );
     $("#menu2 li a").each(function() {
         $( '<span class="over">' +  $(this).text() + '</span>' ).appendTo( this );
@@ -76,7 +77,56 @@ $(function(){
                 alert("退出失败");
             }
         })
+    });
+    $("#submit_btn").click(function () {
+        var content = UE.getEditor('editor').getContent();
+        var type = $("#type").val();
+        var source = $("#source").val();
+        var title = $("#title").val();
+        var introduction = $("#introduction").val();
+        if(title == "" ){
+            alert("请输入标题");
+            return false;
+        };
+        if(introduction == ""){
+            alert("请输入简介");
+            return false;
+        };
+        if(content == ""){
+            alert("请输入内容");
+            return false;
+        };
+
+        $.ajax({
+            url:"/admin/content/add",
+            type:"POST",
+            data:{
+                id : type,
+                title:title,
+                description:introduction,
+                source:source,
+                content:content,
+            },
+            success:function (data) {
+                if(data.code == 0){
+                    console.log(data);
+                    alert(data.message);
+                    window.location.href="/admin/content";
+                }else{
+                    alert(data.message);
+                }
+            },
+            erroe:function (err) {
+                console.log(err);
+            }
+        })
+    });
+    $(".edit #content").click(function () {
+        $(this).hide();
+        $(".eduitor-container").show();
     })
+
+
 
 
 
