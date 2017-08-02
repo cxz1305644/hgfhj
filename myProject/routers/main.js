@@ -110,15 +110,40 @@ router.get("/essay",function(req,res,next){
 });
 router.get("/template",function(req,res,next){
     var id = req.query.id || "";
+    var addviewsql = "updat"
     var getSql = "select * from article where id=" + id;
+    var getSql2 = "SELECT * FROM article AS n WHERE n.`id` < "+id+" ORDER BY n.`id` DESC  LIMIT 0,1";
+    var getSql3 = "SELECT * FROM article AS n WHERE n.`id` > "+id+" ORDER BY n.`id` DESC  LIMIT 0,1";
+    var nextdate,prevdata,data;
+
     db.query(getSql,function (err,result) {
         if(err){
             console.log("error:" + err.message);
             return;
         }else{
-            res.render("main/template",{
-                data:result
-            });
+            data = result[0];
+            db.query(getSql2,function (err,result) {
+                if(err){
+                    console.log("error:" + err.message);
+                    return;
+                }else{
+                    prevdata = result[0];
+                    db.query(getSql3,function (err,result) {
+                        if(err){
+                            console.log("error:" + err.message);
+                            return;
+                        }else{
+                            nextdate = result[0];
+                            res.render("main/template",{
+                                data:data,
+                                prevdata:prevdata,
+                                nextdate:nextdate
+                            });
+                        }
+                    })
+                }
+            })
+
         }
     });
 

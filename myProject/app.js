@@ -17,7 +17,7 @@ var app = express();
 // 设置静态文件托管
 // 当用户访问路径包含public时，对应到当前目录下的public文件夹
 app.use("/public",express.static(__dirname + "/public"));
-
+app.use("/third-party",express.static(__dirname + "/public/libs/ueditor/third-party"));
 
 //配置模板应用
 // 第一个参数 模板引擎的后缀  第二个参数 解析模板内容的方法

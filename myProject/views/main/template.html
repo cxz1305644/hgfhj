@@ -18,29 +18,46 @@
             <div class="content single-content">
                 <header class="post-head">
                     <h2>
-                        <a href="http://www.chenxingzhou.com/blog/255.html"
-                           title="快速搭建MIP，体验友好的移动页面">快速搭建MIP，体验友好的移动页面</a>
+                        <a href="http://www.chenxingzhou.com/template?id={{data.id}}"
+                           title="{{data.title}}">{{data.title}}</a>
                     </h2>
                     <div class="info left">
-                        <span class="category"><i class="fa fa-list-alt"></i><a href="http://www.chenxingzhou.com/tech/">新鲜科技</a></span>
-                        <span class="date"><i class="fa fa-clock-o"></i>2017-6-20</span>
-                        <span class="view"><i class="fa fa-eye"></i>浏览(888)</span>
-                        <span class="comment"><i class="fa fa-comment"></i>评论(4)</span>
+                        <span class="category">
+                            <i class="fa fa-list-alt"></i>
+                            {% if data.classification_id==1 %}
+                            <a href="/qianduan?id=1">web前端</a>
+                            {% endif%}
+                            {% if data.classification_id==2 %}
+                            <a href="/database?id=2">数据库</a>
+                            {% endif%}
+                            {% if data.classification_id==3 %}
+                            <a href="/java?id=3">java</a>
+                            {% endif%}
+                            {% if data.classification_id==4 %}
+                            <a href="linux?id=4">linux</a>
+                            {% endif%}
+                            {% if data.classification_id==5 %}
+                            <a href="/essay?id=5">随笔</a>
+                            {% endif%}
+                        </span>
+                        <span class="date"><i class="fa fa-clock-o"></i>{{data.createtime | date('Y-m-d', -480, 'CCT')}}</span>
+                        <span class="view"><i class="fa fa-eye"></i>浏览({{data.view}})</span>
+                        <span class="comment"><i class="fa fa-comment"></i>{{data.source}}</span>
 
                     </div>
                 </header>
                 <div class="entry">
-
+                    {{data.article|safe}}
                 </div>
                 <div class="tags">
                     标签：
                     <a href="#" class="keytags">分享</a>
-                    <a href="#" class="keytags">分享</a>
-                    <a href="#" class="keytags">分享</a>
-                    <a href="#" class="keytags">分享</a>
-                    <a href="#" class="keytags">分享</a>
-                    <a href="#" class="keytags">分享</a>
-                    <a href="#" class="keytags">分享</a>
+                    <a href="#" class="keytags">前端</a>
+                    <a href="#" class="keytags">java</a>
+                    <a href="#" class="keytags">linux</a>
+                    <a href="#" class="keytags">博客</a>
+                    <a href="#" class="keytags">数据库</a>
+                    <a href="#" class="keytags">随笔</a>
                 </div>
                 <div id="authorarea">
                     <div class="authorinfo">
@@ -50,10 +67,10 @@
                         <div class="author-des">
                             <div class="author-meta">
                                 <span class="post-author-name">
-                                    <a href="http://www.talklee.com/author-1.html">星火燎原</a>
+                                    <a href="http://www.chenxingzhou.xin">星火燎原</a>
                                 </span>
                                 <span class="post-author-tatus">
-                                    <a href="http://www.talklee.com/author-1.html">241篇文章</a>
+                                    <a href="javascript:;">241篇文章</a>
                                 </span>
                                 <span class="post-author-url">
                                     <a href="http://www.talklee.com/author-1.html">站点</a>
@@ -84,11 +101,19 @@
                 <div class="pre-next">
                     <div class="left">
                         上一篇
-                        <a href="http://www.talklee.com/blog/254.html">Brieflee主题-把最好的送给你（7/31）</a>
+                        {% if prevdata %}
+                        <a href="http://www.chenxingzhou.xin/template?id={{prevdata.id}}">{{prevdata.title}}</a>
+                        {% else %}
+                        <a href="#">没有上一篇了</a>
+                        {% endif %}
                     </div>
                     <div class="right">
                         下一篇
-                        <a href="http://www.talklee.com/blog/254.html">Brieflee主题-把最好的送给你（7/31）</a>
+                        {% if nextdata %}
+                        <a href="http://www.chenxingzhou.xin/template?id={{nextdata.id}}">{{nextdata.title}}</a>
+                        {% else %}
+                        <a href="#">没有下一篇了</a>
+                        {% endif %}
                     </div>
                 </div>
                 <section id="comments">
@@ -160,6 +185,11 @@
         {% include "../aside.html" %}
     </div>
 </div>
-
+<script src="public/libs/ueditor/ueditor.parse.js"></script>
+<script>
+    uParse('.entry', {
+        rootPath: '../'
+    })
+</script>
 
 {% include "../footer.html" %}
