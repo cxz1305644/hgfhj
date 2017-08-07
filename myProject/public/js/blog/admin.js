@@ -84,6 +84,7 @@ $(function(){
         var source = $("#source").val();
         var title = $("#title").val();
         var introduction = $("#introduction").val();
+        var imgsrc = $("#content-img").val();
         if(title == "" ){
             alert("请输入标题");
             return false;
@@ -96,6 +97,10 @@ $(function(){
             alert("请输入内容");
             return false;
         };
+        if(imgsrc == ""){
+            alert("请输入图片地址");
+            return false;
+        }
 
         $.ajax({
             url:"/admin/content/add",
@@ -106,6 +111,7 @@ $(function(){
                 description:introduction,
                 source:source,
                 content:content,
+                imgsrc:imgsrc
             },
             success:function (data) {
                 if(data.code == 0){

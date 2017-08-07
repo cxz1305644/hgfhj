@@ -392,7 +392,8 @@ router.post("/content/add",function (req,res,next) {
     var description = req.body.description;
     var content = req.body.content;
     var source = req.body.source;
-    var addArticleSql = "insert into article(classification_id,title,description,article,source) values ('"+ id+"','"+ title+"','" +description +"','"+ content+ "','" +source + "')";
+    var imgsrc = req.body.imgsrc;
+    var addArticleSql = "insert into article(classification_id,title,description,article,source,imgsrc) values ('"+ id+"','"+ title+"','" +description +"','"+ content+ "','" +source + "','"+ imgsrc + "')";
 
     db.query(addArticleSql,function (err,result) {
         if(err){
@@ -410,6 +411,7 @@ router.post("/content/add",function (req,res,next) {
     })
 
 });
+
 
 router.get("/content/edit",function (req,res,next) {
     var id = req.query.id || "";
@@ -458,6 +460,7 @@ router.post("/content/edit",function(req,res,next){
     var title = req.body.title;
     var description = req.body.introduction;
     var content = req.body.content;
+    var imgsrc = req.body.contentImg;
     if(title == "" ){
         res.render("admin/error",{
             userInfo : req.userInfo,
@@ -465,7 +468,13 @@ router.post("/content/edit",function(req,res,next){
         });
         return;
     };
-    console.log(req.body.content);
+    if(imgsrc == ""){
+        res.render("admin/error",{
+            userInfo : req.userInfo,
+            message : "请输入图片地址"
+        });
+        return;
+    }
     if(content == ""){
         res.render("admin/error",{
             userInfo : req.userInfo,
@@ -481,10 +490,8 @@ router.post("/content/edit",function(req,res,next){
         return;
     };
 
-
-    console.log(id);
     var searchArticlesNameql = "select * from article WHERE id="+id+ "";
-    var updateClassificationSql = "update article set classification_id='" + type_id + "',title='"+ title + "',description='"+ description+"',article='"+ content +"' where id=" + id ;
+    var updateClassificationSql = "update article set classification_id='" + type_id + "',imgsrc='"+ imgsrc + "',title='"+ title + "',description='"+ description+"',article='"+ content +"' where id=" + id ;
     db.query(searchArticlesNameql,function(err,result){
         if(err){
             console.log("error:" + err.message);

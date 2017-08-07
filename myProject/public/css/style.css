@@ -785,10 +785,25 @@ img.wy_face_img {
 .wy_feed_detail {
     padding: 20px 20px 0px;
 }
-
-
-
-
+.hide{
+    display: none;
+}
+.mar50{
+    margin-left: 50px;
+}
+span.LevelName {
+    background-color: #4a4a4a;
+    color: #fff !important;
+    font-size: 12px;
+    margin: 0 5px 0 1px;
+    opacity: 0.9;
+    padding: 2px 7px 2.5px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+span.aulevel1 {
+    background-color: #de3009;
+}
 
 /*---自适应---*/@media screen and (min-width:1440px) {}
 @media screen and (min-width:1000px) and (max-width:1024px) {.wrapper,.gonggao {width:100%;}
@@ -1031,3 +1046,4 @@ button.btn-search.dtb2 {font-size:1.2em;transition:all 0.4s ease;width:38px;bord
 .pagination span,.pagination a {margin: 0;}
 }
 @media screen and (max-width:410px) {}
+

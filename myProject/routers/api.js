@@ -162,6 +162,97 @@ router.get("/user/logout",function (req,res,next) {
 });
 
 
+/*
+*   回复文章评论接口
+*   name 评论用户名（必填）
+*   email 评论邮箱（可不填）
+*   url  评论人的个人地址
+*   reply 评论语
+*   id 评论的哪篇文章
+* */
+router.post("/comment",function (req,res,next) {
+    var name = req.body.name;
+    var email = req.body.email;
+    var url = req.body.http;
+    var reply = req.body.reply;
+    var id = req.body.id;
+    var sql1 = "INSERT INTO article_comment( name,email,http,reply, article_id) values ('"+name+"','"+ email+"','"+ url +"','"+reply +"',"+id +")";
+    db.query(sql1,function (err,result) {
+        if(err){
+            console.log("error:" + err.message);
+            responseData.code = "-1";
+            responseData.message = err.message;
+            res.json(responseData);
+            return;
+        }else{
+            responseData.code = "0";
+            responseData.message = "回复成功";
+            res.json(responseData);
+        }
+    })
+});
+
+/*
+ *   回复评论接口
+ *   name 评论用户名（必填）
+ *   email 评论邮箱（可不填）
+ *   url  评论人的个人地址
+ *   reply 评论语
+ *   id 评论的哪篇文章
+ * */
+router.post("/comment2",function (req,res,next) {
+    var adminReply = req.body.adminReply;
+    var id = req.body.id;
+    var adminhuifu = "update article_comment set admin_reply='" + adminReply +"' where id=" + id;
+    db.query(adminhuifu,function (err,result) {
+        if(err){
+            console.log("error:" + err.message);
+            responseData.code = "-1";
+            responseData.message = err.message;
+            res.json(responseData);
+            return;
+        }else{
+            responseData.code = "0";
+            responseData.message = "回复成功";
+            res.json(responseData);
+        }
+    })
+});
+
+
+/*
+* 判断是不是管理员
+*  参数一 name
+*  参数二 token
+*
+* */
+router.post("/isadmin",function (req,res,next) {
+    console.log(req.userInfo.userName);
+    console.log(req.userInfo.token);
+    if(req.userInfo.userName == null || req.userInfo.userName == 'undefined'){
+        responseData.code = "-1";
+        responseData.message = "你不是管理员，无法回复";
+        res.json(responseData);
+        return;
+    }
+    var username = req.userInfo.userName;
+    var token = req.userInfo.token;
+    var sql = "SELECT * FROM `user` WHERE userName='" + username +"' and token='"+ token +"'";
+    db.query(sql,function (err,result) {
+        if(err){
+            console.log("error:" + err.message);
+            responseData.code = "-1";
+            responseData.message = "你不是管理员，无法回复";
+            res.json(responseData);
+            return;
+        }else{
+            responseData.code = "0";
+            responseData.message = "欢迎回来，管理员！";
+            res.json(responseData);
+        }
+    })
+})
+
 module.exports = router;
 
 

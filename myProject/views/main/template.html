@@ -18,36 +18,36 @@
             <div class="content single-content">
                 <header class="post-head">
                     <h2>
-                        <a href="http://www.chenxingzhou.com/template?id={{data.id}}"
-                           title="{{data.title}}">{{data.title}}</a>
+                        <a href="http://www.chenxingzhou.com/template?id={{templateData.id}}"
+                           title="{{templateData.title}}">{{templateData.title}}</a>
                     </h2>
                     <div class="info left">
                         <span class="category">
                             <i class="fa fa-list-alt"></i>
-                            {% if data.classification_id==1 %}
+                            {% if templateData.classification_id==1 %}
                             <a href="/qianduan?id=1">web前端</a>
                             {% endif%}
-                            {% if data.classification_id==2 %}
+                            {% if templateData.classification_id==2 %}
                             <a href="/database?id=2">数据库</a>
                             {% endif%}
-                            {% if data.classification_id==3 %}
+                            {% if templateData.classification_id==3 %}
                             <a href="/java?id=3">java</a>
                             {% endif%}
-                            {% if data.classification_id==4 %}
+                            {% if templateData.classification_id==4 %}
                             <a href="linux?id=4">linux</a>
                             {% endif%}
-                            {% if data.classification_id==5 %}
+                            {% if templateData.classification_id==5 %}
                             <a href="/essay?id=5">随笔</a>
                             {% endif%}
                         </span>
-                        <span class="date"><i class="fa fa-clock-o"></i>{{data.createtime | date('Y-m-d', -480, 'CCT')}}</span>
-                        <span class="view"><i class="fa fa-eye"></i>浏览({{data.view}})</span>
-                        <span class="comment"><i class="fa fa-comment"></i>{{data.source}}</span>
+                        <span class="date"><i class="fa fa-clock-o"></i>{{templateData.createtime | date('Y-m-d', -480, 'CCT')}}</span>
+                        <span class="view"><i class="fa fa-eye"></i>浏览({{templateData.view}})</span>
+                        <span class="comment"><i class="fa fa-comment"></i>{{templateData.source}}</span>
 
                     </div>
                 </header>
                 <div class="entry">
-                    {{data.article|safe}}
+                    {{templateData.article|safe}}
                 </div>
                 <div class="tags">
                     标签：
@@ -80,7 +80,7 @@
                                 </span>
                             </div>
                             <p class="author-description">
-                                舞台上有你，就演好角色； 舞台上没你，就静静地做观众；
+                                不要让任何事情成为你不去学习、不去努力的借口。
                             </p>
                         </div>
                     </div>
@@ -109,8 +109,8 @@
                     </div>
                     <div class="right">
                         下一篇
-                        {% if nextdata %}
-                        <a href="http://www.chenxingzhou.xin/template?id={{nextdata.id}}">{{nextdata.title}}</a>
+                        {% if nextdate  %}
+                        <a href="http://www.chenxingzhou.xin/template?id={{nextdate.id}}">{{nextdate.title}}</a>
                         {% else %}
                         <a href="#">没有下一篇了</a>
                         {% endif %}
@@ -121,61 +121,96 @@
                         <div class="come-comt">
                             <i class="fa fa-comments"></i>
                             评论列表
-                            <span id="comment_count">(2)条评论</span>
+                            {% if comment.length == 0 %}
+                            <span id="comment_count">暂无评论</span>
+                            {% else %}
+                            <span id="comment_count">({{comment.length}})条评论</span>
+                            {% endif %}
                         </div>
                     </div>
+                    {% if comment.length > 0 %}
                     <labal id="AjaxCommentBegin"></labal>
-                    <div class="msg noimg" id="cmt970">
-                        <div class="msgimg">
-                            <img src="http://www.talklee.com/zb_users/avatar/0.png" alt="网友昵称：百度MIP" id="avatar">
-                        </div>
-                        <div class="msgtxt">
-                            <div class="msgname">
-                                <a href="#">百度MIP</a>
-                                <span class="LevelName aulevel6">游客</span>
-                                <span>
-                                    2017-06-20
-                                    <a>回复</a>
-                                </span>
+                        {% for item in comment %}
+                        <div class="msg noimg">
+                            <div class="msgimg">
+                                <img src="http://www.talklee.com/zb_users/avatar/0.png" alt="网友昵称：{{item.name}}" id="avatar">
                             </div>
-                            <div class="msgarticle">
-                                引流不错，就是不会操作啊！
-                                <div class="msg noimg">
-                                    <div class="msgtxt">
-                                        <div class="msgname">
-                                            <a href="http://chenxingzhou.xin">星火燎原</a>
-                                            <span class="LevelName aulevel1">管理员</span>
-                                            <span>2017-06-20</span>
-                                            <a href>回复</a>
-                                        </div>
-                                        <div class="msgarticle">
-                                            {php}$intro = preg_replace('/[\r\n]+/', '', trim(SubStrUTF8(TransferHTML($newlist-˃Content,'
+                            <div class="msgtxt">
+                                <div class="msgname">
+                                    <a href="#" class="commentName{{item.id}}">{{item.name}}</a>
+                                    <span class="LevelName aulevel6">游客</span>
+                                    <span>
+                                        {{item.createtime | date('Y-m-d', -480, 'CCT')}}
+                                        <a  href="javascript:;" onclick="huifu({{item.id}})">回复</a>
+                                    </span>
+                                </div>
+                                <div class="msgarticle">
+                                    {{item.reply}}
+                                    <div class="commentpost form2 hide huifu{{item.id}}" id="comment">
+                                        <h4>
+                                            <i class="fa fa-pencil"></i>
+                                            发表评论
+                                        </h4>
+                                        <form id="frmSumbit" target="_self">
+                                            <div class="comt-box">
+                                                <div class="form-group liuyan form-name">
+                                                    <input type="text" id="inpName" class="text" name="inpName" tabindex="1"  placeholder="名称（必填）">
+                                                </div>
+                                                <div class="form-group liuyan form-email">
+                                                    <input type="text" id="inpEmail" class="text" name="inpEmail" tabindex="2"  placeholder="email">
+                                                </div>
+                                                <div class="form-group liuyan form-www">
+                                                    <input type="text" id="inpHomePage" class="text" name="inpHomePage" tabindex="3" onfocus="this.value='http://';"  placeholder="网址">
+                                                </div>
+                                            </div>
+                                            <textarea name="txaArticle" id="txaArticle" class="text input-block-level comt-area" cols="50" rows="5" tabindex="5"></textarea>
+                                            <p>
+                                                <input type="button" name="sumbit" tabindex="6" value="提交" class="button sumbit_btn">
+                                            </p>
+                                        </form>
+                                    </div>
+
+                                    {% if item.admin_reply %}
+                                    <div class="msg noimg mar50">
+                                        <div class="msgtxt">
+                                            <div class="msgname">
+                                                <a href="http://chenxingzhou.xin">星火燎原</a>
+                                                <span class="LevelName aulevel1">管理员</span>
+                                                <span>{{item.updatetime | date('Y-m-d', -480, 'CCT')}}</span>
+                                            </div>
+                                            <div class="msgarticle">
+                                                {{item.admin_reply}}
+                                            </div>
                                         </div>
                                     </div>
+                                    {% endif %}
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="commentpost" id="comment">
+                        {% endfor %}
+
+                    {% endif %}
+
+                    <div class="commentpost form1" id="comment">
                         <h4>
                             <i class="fa fa-pencil"></i>
                             发表评论
                         </h4>
-                        <form id="frmSumbit" target="_self" method="post">
+                        <form id="frmSumbit" target="_self">
                             <div class="comt-box">
                                 <div class="form-group liuyan form-name">
-                                    <input type="text" id="inpName" class="text" name="inpName" tabindex="1" value="访客" placeholder="名称（必填）">
+                                    <input type="text" id="inpName" class="text" name="inpName" tabindex="1"  placeholder="名称（必填）">
                                 </div>
                                 <div class="form-group liuyan form-email">
-                                    <input type="text" id="inpEmail" class="text" name="inpEmail" tabindex="2" value="访客" placeholder="email">
+                                    <input type="text" id="inpEmail" class="text" name="inpEmail" tabindex="2"  placeholder="email">
                                 </div>
                                 <div class="form-group liuyan form-www">
-                                    <input type="text" id="inpHomePage" class="text" name="inpHomePage" tabindex="3" onfocus="this.value='http://';" value="访客" placeholder="网址）">
+                                    <input type="text" id="inpHomePage" class="text" name="inpHomePage" tabindex="3" onfocus="this.value='http://';"  placeholder="网址">
                                 </div>
                             </div>
-                            <textarea name="txaArticle" id="txaArticle" class="text input-block-level comt-area" cols="50" rows="5" tabindex="5" onkeydown="if(event.ctrlKey&&event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
+                            <textarea name="txaArticle" id="txaArticle" class="text input-block-level comt-area" cols="50" rows="5" tabindex="5"></textarea>
                             <p>
-                                <input type="button" name="sumbit" tabindex="6" value="提交" class="button">
+                                <input type="button" name="sumbit" tabindex="6" value="提交" class="button sumbit_btn">
                             </p>
                         </form>
                     </div>
