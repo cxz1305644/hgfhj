@@ -14,7 +14,8 @@ var mysql = require("mysql");
 // });
 
 var client = mysql.createPool({
-    host: 'localhost',
+    // 47.93.52.252
+    host: '47.93.52.252',
     user: 'root',
     password: '654321',
     database:"blog",

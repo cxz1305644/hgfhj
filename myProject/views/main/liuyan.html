@@ -1,264 +1,212 @@
 ﻿{% include "../head.html" %}
 <div class="wrapper">
-    <div class="container container-home">
+    <div class="container">
         <div class="content-wrap left">
+            {% block main%}
             <div class="navcates">
-                <i class="fa fa-home"></i>当前位置：
-                <a href="/">首页</a> »
-                <a href="/liuyan" rel="bookmark" target="_blank" title="正在阅读留言本">留言本</a>
+                <i class="fa fa-home"></i>当前位置：<a href="/">首页</a> » <a
+                    href="/qianduan">web前端</a>
             </div>
+            {% endblock%}
+            <!--<div class="ad">-->
+            <!--<a href="http://s.click.taobao.com/pqo03Qx" target="_blank">-->
+            <!--<img src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器">-->
+            <!--</a>-->
+            <!--</div>-->
 
             <div class="content single-content">
                 <header class="post-head">
                     <h2>
-                        <a href="/liuyan" rel="bookmark" target="_blank" title="正在阅读留言本">留言本</a>
+                        <a href="http://www.chenxingzhou.com/template?id={{templateData.id}}"
+                           title="{{templateData.title}}">{{templateData.title}}</a>
                     </h2>
-                    <!-- 文章信息 -->
                     <div class="info left">
-                        <span class="date">
-                            <i class="fa fa-clock-o"></i>2018-08-1
+                        <span class="category">
+                            <i class="fa fa-list-alt"></i>
+                            <a href="/liuyan?id=10000">留言本</a>
                         </span>
-                        <span class="view">
-                            <i class="fa fa-eye"></i>浏览(13397)
-                        </span>
-                        <span class="comment">
-                            <i class="fa fa-comment"></i>
-                            <a href="http://www.chenxingzhou.com/guestbook/#comment">评论(127)</a>
-                        </span>
+                        <span class="date"><i class="fa fa-clock-o"></i>{{templateData.createtime | date('Y-m-d', -480, 'CCT')}}</span>
+                        <span class="view"><i class="fa fa-eye"></i>浏览({{templateData.view}})</span>
+                        <span class="comment"><i class="fa fa-comment"></i>{{templateData.source}}</span>
+
                     </div>
                 </header>
-                <!--<div class="ad ad-single">-->
-                    <!--<a href="http://s.click.taobao.com/pqo03Qx" target="_blank">-->
-                        <!--<img src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器">-->
-                    <!--</a>-->
-                <!--</div>-->
                 <div class="entry">
-                    <p style="text-indent: 2em;">本人搭上了80后的首班车，来到了这个所谓的21世纪。网络时代的爬虫，熟悉dz、php论坛程序，z-blog博客程序，淘宝网店。对网站建站略懂一二，对电子商务一知半解 !</p>
-                    <p style="text-indent: 2em;">
-                        <strong>站长梦想</strong><br/>希望可以简历一个真正实用有意义的网站，当然自己还是想在网络上成就一番自己的事业，虽然有点不着边，但是还是有可能，因为有梦想，才会有成功。
-                    </p>
-                    <p style="text-indent: 0em; text-align: center;"><img
-                            src="public/picture/201705151494818972855449.png" title="我是站长.png" alt="我是站长.png"/></p>
-                    <p style="text-indent: 2em;">本站简介名称：陈星州博客 &nbsp; &nbsp;<br/>
-                        链接：<a href="http://www.chenxingzhou.com" target="_self">http://www.chenxingzhou.com/</a>&nbsp;内容：一个基于建站技术分享交流，博客推广，网络服务的一站式博客发展：致力于打造一个经典博客网，为网民提供更方便的一站式网上冲浪服务。希望可以和站长朋友们一起学习交流！
-                    </p>
-
+                    {{templateData.article|safe}}
+                </div>
+                <div class="tags">
+                    标签：
+                    <a href="#" class="keytags">分享</a>
+                    <a href="#" class="keytags">前端</a>
+                    <a href="#" class="keytags">java</a>
+                    <a href="#" class="keytags">linux</a>
+                    <a href="#" class="keytags">博客</a>
+                    <a href="#" class="keytags">数据库</a>
+                    <a href="#" class="keytags">随笔</a>
                 </div>
                 <div id="authorarea">
                     <div class="authorinfo">
                         <div class="author-avater">
-                            <img class="avaterimg" alt="作者：非李莫属" title="作者：非李莫属" src="public/picture/1.png" height="50"
-                                 width="50">
+                            <img class="avaterimg" src="public/picture/admintou.jpg" alt="作者：陈星州">
                         </div>
                         <div class="author-des">
                             <div class="author-meta">
-                                <span class="post-author-name"><a href="http://www.chenxingzhou.com/author-1.html"
-                                                                  title="由非李莫属发布" rel="author">非李莫属</a></span>
-                                <span class="post-author-tatus"><a href="http://www.chenxingzhou.com/author-1.html"
-                                                                   target="_blank">239篇文章</a></span>
-                                <span class="post-author-url"><a href="http://www.chenxingzhou.com/" rel="nofollow"
-                                                                 target="_blank">站点</a></span>
-                                <span class="post-author-weibo"><a href="http://weibo.com/523912300/" rel="nofollow"
-                                                                   target="_blank">微博</a></span>
+                                <span class="post-author-name">
+                                    <a href="http://www.chenxingzhou.xin">星火燎原</a>
+                                </span>
+                                <span class="post-author-tatus">
+                                    <a href="javascript:;">{{data.articleSum.length}}篇文章</a>
+                                </span>
+                                <span class="post-author-url">
+                                    <a href="http://www.chenxingzhou.xin">站点</a>
+                                </span>
+                                <span class="post-author-weibo">
+                                    <a href="http://www.cnblogs.com/blogcxz/">博客园</a>
+                                </span>
                             </div>
-                            <p class="author-description">舞台上有你，就演好角色； 舞台上没你，就静静地做观众；</p>
+                            <p class="author-description">
+                                不要让任何事情成为你不去学习、不去努力的借口。
+                            </p>
                         </div>
                     </div>
                     <div class="bdshare">
-                        <div class="bdsharebuttonbox"><a href="#" class="bds_qzone" data-cmd="qzone"
-                                                         title="分享到QQ空间"></a><a href="#" class="bds_tsina"
-                                                                                data-cmd="tsina" title="分享到新浪微博"></a><a
-                                href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a><a href="#"
-                                                                                               class="bds_renren"
-                                                                                               data-cmd="renren"
-                                                                                               title="分享到人人网"></a><a
-                                href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><a href="#"
-                                                                                                   class="bds_more"
-                                                                                                   data-cmd="more"></a>
+                        <div class="bdsharebuttonbox bdshare-button-style1-24" data-bd-bind="1501589671838">
+                            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪"></a>
+                            <a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+                            <a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+                            <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                            <a href="#" class="bds_more" data-cmd="more"></a>
                         </div>
-                        </div>
+
+                    </div>
                 </div>
-                <!--<div class="ad ad-single">-->
-                    <!--<a href="http://s.click.taobao.com/pqo03Qx" target="_blank"><img-->
-                            <!--src="public/picture/201707061499321319382694.jpg" alt="阿里云爆款云服务器" title="阿里云爆款云服务器"></a>-->
-                <!--</div>-->
-                <section id="comments" class="">
-                    <!--评论输出-->
-                    <div class="comment-tab"><span class="come-comt"><i class="fa fa-comments"></i> 评论列表 <span
-                            id="comment_count">(127)条评论</span> </span></div>
-                    <label id="AjaxCommentBegin"></label>
-                    <div class="msg" id="cmt967">
-                        <div class="msgimg">
-                            <img class="avatar" src="public/picture/0.png" alt="网友昵称：陈" title="网友昵称：陈"/>
-                        </div>
-                        <div class="msgtxt">
-                            <div class="msgname">
-                                <span class="dot">1#</span><a
-                                    href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=http://www.nnnnn.com"
-                                    rel="nofollow" target="_blank">陈</a>
-                                <span>2017-07-16<a href="#reply" onclick="RevertComment('967')">回复</a></span>
-                            </div>
-                            <div class="msgarticle">
-                                老铁，刚准备弄个博客，你的博客style太好看了，参考下你的网站样式，可以不！谢了！<label id="AjaxComment967"></label></div>
+                <div class="pre-next">
+                    <div class="left">
+                        上一篇
+                        {% if prevdata %}
+                        <a href="http://www.chenxingzhou.xin/template?id={{prevdata.id}}">{{prevdata.title}}</a>
+                        {% else %}
+                        <a href="#">没有上一篇了</a>
+                        {% endif %}
+                    </div>
+                    <div class="right">
+                        下一篇
+                        {% if nextdate  %}
+                        <a href="http://www.chenxingzhou.xin/template?id={{nextdate.id}}">{{nextdate.title}}</a>
+                        {% else %}
+                        <a href="#">没有下一篇了</a>
+                        {% endif %}
+                    </div>
+                </div>
+                <section id="comments">
+                    <div class="comment-tab">
+                        <div class="come-comt">
+                            <i class="fa fa-comments"></i>
+                            评论列表
+                            {% if comment.length == 0 %}
+                            <span id="comment_count">暂无评论</span>
+                            {% else %}
+                            <span id="comment_count">({{comment.length}})条评论</span>
+                            {% endif %}
                         </div>
                     </div>
-
-                    <div class="msg" id="cmt944">
+                    {% if comment.length > 0 %}
+                    <labal id="AjaxCommentBegin"></labal>
+                    {% for item in comment %}
+                    <div class="msg noimg">
                         <div class="msgimg">
-                            <img class="avatar" src="public/picture/0.png" alt="网友昵称：电动汽车价格表" title="网友昵称：电动汽车价格表"/>
+                            <img src="http://www.talklee.com/zb_users/avatar/0.png" alt="网友昵称：{{item.name}}" id="avatar">
                         </div>
                         <div class="msgtxt">
                             <div class="msgname">
-                                <span class="dot">2#</span><a
-                                    href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=http://ddc.greenwheel.com.cn/"
-                                    rel="nofollow" target="_blank">电动汽车价格表</a><span>2017-06-27<a href="#reply"
-                                                                                                 onclick="RevertComment('944')">回复</a></span>
+                                <a href="#" class="commentName{{item.id}}">{{item.name}}</a>
+                                <span class="LevelName aulevel6">游客</span>
+                                <span>
+                                        {{item.createtime | date('Y-m-d', -480, 'CCT')}}
+                                        <a  href="javascript:;" onclick="huifu({{item.id}})">回复</a>
+                                    </span>
                             </div>
                             <div class="msgarticle">
-                                路过进来看一下！<label id="AjaxComment944"></label></div>
-                        </div>
-                    </div>
-
-                    <div class="msg" id="cmt943">
-                        <div class="msgimg">
-                            <img class="avatar" src="public/picture/0.png" alt="网友昵称：电动汽车加盟" title="网友昵称：电动汽车加盟"/>
-                        </div>
-                        <div class="msgtxt">
-                            <div class="msgname">
-                                <span class="dot">3#</span><a
-                                    href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=http://www.gw-ev.com/"
-                                    rel="nofollow" target="_blank">电动汽车加盟</a><span>2017-06-27<a href="#reply"
-                                                                                                onclick="RevertComment('943')">回复</a></span>
-                            </div>
-                            <div class="msgarticle">
-                                网站真的很漂亮！http://www.gw-ev.com/<label id="AjaxComment943"></label></div>
-                        </div>
-                    </div>
-
-                    <div class="msg" id="cmt938">
-                        <div class="msgimg">
-                            <img class="avatar" src="public/picture/0.png" alt="网友昵称：小虎博客" title="网友昵称：小虎博客"/>
-                        </div>
-                        <div class="msgtxt">
-                            <div class="msgname">
-                                <span class="dot">4#</span><a
-                                    href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=http://huhen.com"
-                                    rel="nofollow" target="_blank">小虎博客</a><span>2017-06-23<a href="#reply"
-                                                                                              onclick="RevertComment('938')">回复</a></span>
-                            </div>
-                            <div class="msgarticle">
-                                读者墙外链跳转是用插件还是修改代码的？<label id="AjaxComment938"></label></div>
-                        </div>
-                    </div>
-
-                    <div class="msg" id="cmt927">
-                        <div class="msgimg">
-                            <img class="avatar" src="public/picture/0.png" alt="网友昵称：飞翔勿扰" title="网友昵称：飞翔勿扰"/>
-                        </div>
-                        <div class="msgtxt">
-                            <div class="msgname">
-                                <span class="dot">5#</span><a
-                                    href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=http://www.pengqi.club"
-                                    rel="nofollow" target="_blank">飞翔勿扰</a><span>2017-06-10<a href="#reply"
-                                                                                              onclick="RevertComment('927')">回复</a></span>
-                            </div>
-                            <div class="msgarticle">
-                                网站简介：学而时习之，交流生活经验，希望交个朋友，贵站链接已添加，，希望可以采纳，感谢<label id="AjaxComment927"></label>
-                                <div class="msg" id="cmt928">
-                                    <div class="msgimg">
-                                        <img class="avatar" src="public/picture/1.png" alt="网友昵称：非李莫属"
-                                             title="网友昵称：非李莫属"/>
-                                    </div>
-                                    <div class="msgtxt">
-                                        <div class="msgname">
-                                            <span class="dot">5#</span><a
-                                                href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=http://www.chenxingzhou.com/"
-                                                rel="nofollow" target="_blank">非李莫属</a><span>2017-06-12<a href="#reply"
-                                                                                                          onclick="RevertComment('928')">回复</a></span>
+                                {{item.reply}}
+                                <div class="commentpost form2 hide huifu{{item.id}}" id="comment">
+                                    <h4>
+                                        <i class="fa fa-pencil"></i>
+                                        发表评论
+                                    </h4>
+                                    <form id="frmSumbit" target="_self">
+                                        <div class="comt-box">
+                                            <div class="form-group liuyan form-name">
+                                                <input type="text" id="inpName" class="text" name="inpName" tabindex="1"  placeholder="名称（必填）">
+                                            </div>
+                                            <div class="form-group liuyan form-email">
+                                                <input type="text" id="inpEmail" class="text" name="inpEmail" tabindex="2"  placeholder="email">
+                                            </div>
+                                            <div class="form-group liuyan form-www">
+                                                <input type="text" id="inpHomePage" class="text" name="inpHomePage" tabindex="3" onfocus="this.value='http://';"  placeholder="网址">
+                                            </div>
                                         </div>
-                                        <div class="msgarticle">
-                                            谢谢支持，本站目前不做友链。<label id="AjaxComment928"></label></div>
-                                    </div>
+                                        <textarea name="txaArticle" id="txaArticle" class="text input-block-level comt-area" cols="50" rows="5" tabindex="5"></textarea>
+                                        <p>
+                                            <input type="button" name="sumbit" tabindex="6" value="提交" class="button sumbit_btn">
+                                        </p>
+                                    </form>
                                 </div>
 
+                                {% if item.admin_reply %}
+                                <div class="msg noimg mar50">
+                                    <div class="msgtxt">
+                                        <div class="msgname">
+                                            <a href="http://chenxingzhou.xin">星火燎原</a>
+                                            <span class="LevelName aulevel1">管理员</span>
+                                            <span>{{item.updatetime | date('Y-m-d', -480, 'CCT')}}</span>
+                                        </div>
+                                        <div class="msgarticle">
+                                            {{item.admin_reply}}
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
+                    {% endfor %}
 
-                    <div class="msg" id="cmt923">
-                        <div class="msgimg">
-                            <img class="avatar" src="public/picture/0.png" alt="网友昵称：赞" title="网友昵称：赞"/>
-                        </div>
-                        <div class="msgtxt">
-                            <div class="msgname">
-                                <span class="dot">6#</span><a
-                                    href="http://www.chenxingzhou.com/zb_users/theme/brieflee/goto.php?url=" rel="nofollow"
-                                    target="_blank">赞</a><span>2017-06-08<a href="#reply"
-                                                                            onclick="RevertComment('923')">回复</a></span>
-                            </div>
-                            <div class="msgarticle">
-                                做的不错啊、赞<label id="AjaxComment923"></label></div>
-                        </div>
-                    </div>
+                    {% endif %}
 
-                    <!--评论输出结束-->
-                    <!--评论翻页条输出-->
-                    <div id="comments-nav" class="pagination">
-                        <a class="page-numbers" href="javascript:zbp.comment.get('2','');">‹‹</a></li>
-                        <span class="page-numbers current">1</span>
-                        <a class="page-numbers" href="javascript:zbp.comment.get('2','2');">2</a></li>
-                        <a class="page-numbers" href="javascript:zbp.comment.get('2','3');">3</a></li>
-                        <a class="page-numbers" href="javascript:zbp.comment.get('2','2');">›</a></li>
-                        <a class="page-numbers" href="javascript:zbp.comment.get('2','12');">››</a></li>
-                    </div>
-                    <label id="AjaxCommentEnd"></label>
-                    <!--评论翻页条输出结束-->
-                    <!--评论框-->
-                    <div class="commentpost" id="comment">
+                    <div class="commentpost form1" id="comment">
                         <h4>
                             <i class="fa fa-pencil"></i>
-                            <span>
-                                <a rel="nofollow" id="cancel-reply" href="#comment" style="display:none;">
-                                    <small>取消回复</small>
-                                </a>
-                            </span>发表评论
+                            发表评论
                         </h4>
-                        <form id="frmSumbit" target="_self" method="post"
-                              action="http://www.chenxingzhou.com/zb_system/cmd.php?act=cmt&amp;postid=2&amp;key=62cfa9342859e47920ff23c241d3005e">
-                            <input type="hidden" name="inpId" id="inpId" value="2"/>
-                            <input type="hidden" name="inpRevID" id="inpRevID" value="0"/>
+                        <form id="frmSumbit" target="_self">
                             <div class="comt-box">
-                                <div class="form-group liuyan form-name"><input type="text" id="inpName" class="text"
-                                                                                name="inpName" tabindex="1" value="访客"
-                                                                                placeholder="名称（必填）"></div>
-                                <div class="form-group liuyan form-email"><input type="text" id="inpEmail" class="text"
-                                                                                 name="inpEmail" tabindex="2"
-                                                                                 placeholder="邮箱"></div>
-                                <div class="form-group liuyan form-www"><input type="text" id="inpHomePage"
-                                                                               name="inpHomePage"
-                                                                               onfocus="this.value='http://';"
-                                                                               class="text" tabindex="3"
-                                                                               placeholder="网址"></div>
+                                <div class="form-group liuyan form-name">
+                                    <input type="text" id="inpName" class="text" name="inpName" tabindex="1"  placeholder="名称（必填）">
+                                </div>
+                                <div class="form-group liuyan form-email">
+                                    <input type="text" id="inpEmail" class="text" name="inpEmail" tabindex="2"  placeholder="email">
+                                </div>
+                                <div class="form-group liuyan form-www">
+                                    <input type="text" id="inpHomePage" class="text" name="inpHomePage" tabindex="3" onfocus="this.value='http://';"  placeholder="网址">
+                                </div>
                             </div>
-                            <!--verify-->
-                            <div id="comment-tools">
-                                <!--<a href="javascript:;" class="face-show"><i class="fa fa-smile-o"></i></a>
-                                <div id="ComtoolsFrame" class="ComtoolsFrame" style="display: none;"><img src="public/picture/angry.png" alt="angry" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/awkward.png" alt="awkward" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/boom.png" alt="boom" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/bye.png" alt="bye" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/chagrin.png" alt="chagrin" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/confuse.png" alt="confuse" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/cry.png" alt="cry" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/dog.png" alt="dog" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/effort.png" alt="effort" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/exclaim.png" alt="exclaim" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/grimace.png" alt="grimace" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/grin.png" alt="grin" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/kiss.png" alt="kiss" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/laugh.png" alt="laugh" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/left.png" alt="left" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/love.png" alt="love" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/mad.png" alt="mad" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/neutral.png" alt="neutral" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/nose.png" alt="nose" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/right.png" alt="right" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/roll.png" alt="roll" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/shutup.png" alt="shutup" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/surprise.png" alt="surprise" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/torment.png" alt="torment" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/twisted.png" alt="twisted" onclick="InsertText(objActive,'['+this.alt+']',false);"><img src="public/picture/waii.png" alt="waii" onclick="InsertText(objActive,'['+this.alt+']',false);"></div>-->
-                            </div>
-                            <textarea placeholder="请爱护环境，勿发小广告！O(∩_∩)O~~" name="txaArticle" id="txaArticle"
-                                      class="text input-block-level comt-area" cols="50" rows="4" tabindex="5"
-                                      onkeydown="if(event.ctrlKey&amp;&amp;event.keyCode==13){document.getElementById('submit').click();return false};"></textarea>
-                            <p><input name="sumbit" type="submit" tabindex="6" value="提交"
-                                      onclick="return VerifyMessage()" class="button"/></p>
+                            <textarea name="txaArticle" id="txaArticle" class="text input-block-level comt-area" cols="50" rows="5" tabindex="5"></textarea>
+                            <p>
+                                <input type="button" name="sumbit" tabindex="6" value="提交" class="button sumbit_btn">
+                            </p>
                         </form>
-                    </div><!--评论框结束-->
-                    <span class="icon icon_comment" title="comment"></span>
+                    </div>
                 </section>
             </div>
         </div>
-
         {% include "../aside.html" %}
-
     </div>
 </div>
+<script src="public/libs/ueditor/ueditor.parse.js"></script>
+<script>
+    uParse('.entry', {
+        rootPath: '../'
+    })
+</script>
 {% include "../footer.html" %}

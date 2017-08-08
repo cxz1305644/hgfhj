@@ -15,6 +15,9 @@ $(function(){
         var url = $(".form1 #inpHomePage").val();
         var comment = $(".form1 #txaArticle").val();
         var id = GetQueryString("id");
+        if(id == "10000"){
+            id = 1;
+        }
         if(name == "" || name == "undefined"){
             alert("名称不能为空！！");
             return false;
@@ -48,7 +51,7 @@ $(function(){
     });
     $(".form2 .sumbit_btn").click(function () {
         var comment = $(".huifu"+commentId+ " #txaArticle").val();
-        var id = commentId
+        var id = commentId;
         if(comment == "" || comment == "undefined"){
             alert("回复不能为空！！");
             return false;

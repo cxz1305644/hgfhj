@@ -103,9 +103,91 @@ router.get("/",function(req,res,next){
 });
 
 router.get("/liuyan",function(req,res,next){
+    var id = 1;
+    var getSql = "select * from article where id=" + id;
+    var getSql2 = "SELECT * FROM `article` WHERE `id`<"+id+" ORDER BY `id` DESC LIMIT 1";
+    var getSql3 = "SELECT * FROM `article` WHERE `id` > "+id+" LIMIT 1";
+    var getSql4 = "select * from article_comment";
+    var getSql5 = "select * from article_comment where article_id=" + id;
+    var nextdate,prevdata,templateData,view,comment;
+    getData(viewSum,"viewSum").then(function () {
+        return getData(articleSum,"articleSum")
+    }).then(function () {
+        return getData(commentSum,"commentSum")
+    }).then(function () {
+        // 查询文章
+        db.query(getSql,function (err,result) {
+            if(err){
+                console.log("error:" + err.message);
+                return;
+            }else{
+                templateData = result[0];
+                console.log(templateData.view+1);
+                view = templateData.view +1;
+                templateData.view = view;
+                var addviewsql = "update article set `view` = " + view + " where id = "  + id;
+                // 更新浏览量
+                db.query(addviewsql,function (err,result) {
+                    if(err){
+                        console.log("error:" + err.message);
+                        return;
+                    }else {
+                        // 获取上一条
+                        db.query(getSql2,function (err,result) {
+                            if(err){
+                                console.log("error:" + err.message);
+                                return;
+                            }else{
+                                prevdata = result[0];
+                                // 获取下一条
+                                db.query(getSql3,function (err,result) {
+                                    if(err){
+                                        console.log("error:" + err.message);
+                                        return;
+                                    }else{
+                                        nextdate = result[0];
+                                        // 查询文章回复
+                                        db.query(getSql5,function (err,result) {
+                                            if(err){
+                                                console.log("error:" + err.message);
+                                                return;
+                                            }else{
+                                                comment = result;
+                                                db.query(viewSum,function (err,result) {
+                                                    if(err){
+                                                        console.log("error : "+ err.message);
+                                                        return;
+                                                    }else{
+                                                        data.viewSum = result[0]["SUM(view)"];
+                                                        console.log(data);
+                                                        console.log(nextdate);
+                                                        res.render("main/liuyan",{
+                                                            templateData:templateData,
+                                                            prevdata:prevdata,
+                                                            nextdate:nextdate,
+                                                            comment:comment,
+                                                            data:data
+                                                        });
+                                                    }
+                                                })
+
+                                            }
+                                        });
 
 
-    res.render("main/liuyan");
+                                    }
+                                })
+                            }
+                        })
+                    }
+
+                })
+            }
+        })
+    })
+
+
+
 });
 router.get("/database",function(req,res,next){
     res.render("main/database");
