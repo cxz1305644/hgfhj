@@ -5,19 +5,11 @@
 
 var mysql = require("mysql");
 
-// var client = mysql.createPool({
-//     host: 'localhost',
-//     user: 'root',
-//     password: '123456',
-//     database:"blog",
-//     port: 3306
-// });
-
 var client = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '654321',
-    database:"blog",
+    database:"myTest",
     port: 3306
 });
 
@@ -33,29 +25,3 @@ function query(sql,callback){
 
 exports.query = query;
 
-// // 登录
-// $sql = "SELECT * from user WHERE userName='chen' and password='123456' ";
-// client.connect(function(error, results) {
-//     if(error) {
-//         console.log('Connection Error: ' + error.message);
-//         return;
-//     }
-//     console.log('Connected to MySQL');
-//     //监听端口
-//
-//
-//
-// });
-// client.query($sql,function (err,result) {
-//     if(err){
-//         console.log('Connection Error: ' + error.message);
-//         return;
-//     }
-//     if(result.length <= 0){
-//         console.log("没有这条数据");
-//     }else{
-//         console.log("有这条数据");
-//         console.log(result);
-//     }
-//
-// })

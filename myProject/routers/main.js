@@ -41,6 +41,8 @@ var articleSum = "select * from article";
 // 获取评论总数
 var commentSum = "select * from article_comment";
 
+
+
 var count = 0;
 var getData = function (sql,obj) {
     return new Promise(function(resolve,reject){
@@ -60,45 +62,54 @@ var getData = function (sql,obj) {
 /*
 *  首页
 * */
+// router.get("/",function(req,res,next){
+//     getData(getviewSql,"viewData").then(function () {
+//         return getData(linuxArticle,"linuxData")
+//     }).then(function () {
+//         return getData(databaseArticle,"databaseData")
+//     }).then(function () {
+//         return getData(webArticle,"webData")
+//     }).then(function () {
+//         return getData(javaArticle,"javaData")
+//     }).then(function () {
+//         return getData(essayArticle,"essayData")
+//     }).then(function () {
+//         return getData(articleSum,"articleSum")
+//     }).then(function () {
+//         return getData(commentSum,"commentSum")
+//     }).then(function () {
+//         db.query(viewSum,function (err,result) {
+//             if(err){
+//                 console.log("error : "+ err.message);
+//                 return;
+//             }else{
+//                 data.viewSum = result[0]["SUM(view)"];
+//                 console.log(data);
+//                 res.render("index",{
+//                     data:data
+//                 });
+//             }
+//         })
+//     })
+//
+//     db.query(articleSum,function (err,result) {
+//         if(err){
+//             console.log("error:" + err.message);
+//             return;
+//         }else{
+//             data.articleSum = result.length;
+//
+//         }
+//     })
+//
+// });
+
 router.get("/",function(req,res,next){
-    getData(getviewSql,"viewData").then(function () {
-        return getData(linuxArticle,"linuxData")
-    }).then(function () {
-        return getData(databaseArticle,"databaseData")
-    }).then(function () {
-        return getData(webArticle,"webData")
-    }).then(function () {
-        return getData(javaArticle,"javaData")
-    }).then(function () {
-        return getData(essayArticle,"essayData")
-    }).then(function () {
-        return getData(articleSum,"articleSum")
-    }).then(function () {
-        return getData(commentSum,"commentSum")
-    }).then(function () {
-        db.query(viewSum,function (err,result) {
-            if(err){
-                console.log("error : "+ err.message);
-                return;
-            }else{
-                data.viewSum = result[0]["SUM(view)"];
-                console.log(data);
-                res.render("index",{
-                    data:data
-                });
-            }
-        })
-    })
 
-    db.query(articleSum,function (err,result) {
-        if(err){
-            console.log("error:" + err.message);
-            return;
-        }else{
-            data.articleSum = result.length;
 
-        }
-    })
+    res.send('respond with a resource');
+
+
 
 });
 

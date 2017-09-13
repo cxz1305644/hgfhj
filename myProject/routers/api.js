@@ -162,6 +162,15 @@ router.get("/user/logout",function (req,res,next) {
 });
 
 
+
+/*
+ * 退出登录
+ * */
+router.get("/getVersion",function (req,res,next) {
+    req.cookies.set("userInfo",null);
+    res.json(responseData);
+});
+
 /*
 *   回复文章评论接口
 *   name 评论用户名（必填）
