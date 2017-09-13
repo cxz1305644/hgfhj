@@ -5,6 +5,13 @@
 
 var mysql = require("mysql");
 
+// var client = mysql.createPool({
+//     host: 'localhost',
+//     user: 'root',
+//     password: '123456',
+//     database:"myTest",
+//     port: 3306
+// });
 var client = mysql.createPool({
     host: 'localhost',
     user: 'root',

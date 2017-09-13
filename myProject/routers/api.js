@@ -170,6 +170,8 @@ router.get("/user/logout",function (req,res,next) {
 router.get("/getVersion",function (req,res,next) {
 
     req.cookies.set("userInfo",null);
+    responseData.code = "1";
+    responseData.message = "http://www.chenxingzhou.xin/public/css/android-armv7-release.apk";
     res.json(responseData);
 });
 
