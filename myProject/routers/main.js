@@ -113,6 +113,14 @@ router.get("/",function(req,res,next){
 
 });
 
+router.get("/app",function(req,res,next){
+
+
+    res.render("/favicon.ico",{});
+
+
+});
+
 router.get("/liuyan",function(req,res,next){
     var id = 1;
     var getSql = "select * from article where id=" + id;

@@ -19,6 +19,7 @@ function generateMixed(n) {
 // 定义一个统一返回格式
 var responseData;
 router.use(function(req,res,next){
+    res.header('Access-Control-Allow-Origin', '*')
     responseData = {
         code : 0,
         message : "",
@@ -167,6 +168,7 @@ router.get("/user/logout",function (req,res,next) {
  * 退出登录
  * */
 router.get("/getVersion",function (req,res,next) {
+
     req.cookies.set("userInfo",null);
     res.json(responseData);
 });

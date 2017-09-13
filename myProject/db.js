@@ -9,7 +9,7 @@ var client = mysql.createPool({
     host: 'localhost',
     user: 'root',
     password: '654321',
-    database:"myTest",
+    database:"blog",
     port: 3306
 });
 
